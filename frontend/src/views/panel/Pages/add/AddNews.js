@@ -16,7 +16,7 @@ const AddNews = ({ setMessage }) => {
   };
 
   return (
-    <div className="flex flex-row h-full md:h-screen bg-gray-50 dark:bg-gray-900 ">
+    <div className="flex flex-row h-full md:h-screen bg-gray-50 dark:bg-surface-600 ">
       <Aside />
       <main className=" px-6 flex-grow h-full md:h-auto">
         <Formik
@@ -84,7 +84,7 @@ const AddNews = ({ setMessage }) => {
                         Title
                       </label>
                       <TextArea
-                      rows={5}
+                        rows={5}
                         type="text"
                         name="title"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

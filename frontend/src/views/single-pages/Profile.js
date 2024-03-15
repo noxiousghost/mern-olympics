@@ -20,7 +20,7 @@ const Profile = ({ user }) => {
 
   return (
     <>
-      <div className="h-full bg-gray-50 dark:bg-gray-900 py-10">
+      <div className="h-full bg-gray-50 dark:bg-surface-600 py-10">
         <div className="border-b-2 border-b-gray-700  flex flex-col space-y-4 md:space-y-0 md:flex-row   ">
           {/* p-4 w-full max-w-sm  rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 */}
           <div className="w-full md:w-2/5 p-4 sm:p-6 lg:p-8 rounded-lg dark:bg-gray-800 dark:border-gray-700 shadow-md">

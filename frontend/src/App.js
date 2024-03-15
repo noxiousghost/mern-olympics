@@ -73,7 +73,7 @@ function App() {
           handleSearchKey={handleSearchKey}
         />
 
-        <div className="relative overflow-y-auto p-4  md:px-10 py-10 dark:bg-gray-900 min-h-screen text-wheatt ">
+        <div className="relative overflow-y-auto p-4  md:px-10 py-10 dark:bg-surface-600 min-h-screen text-wheatt ">
           {message && <Notification setUser={setUser} notify={message} />}
           <Routes>
             <Route index element={<Home setMessage={setMessage} />} />
@@ -82,15 +82,15 @@ function App() {
               element={<Login setUser={setUser} setMessage={setMessage} />}
             />
             <Route path="signup" element={<Signup setMessage={setMessage} />} />
-            <Route path="verify" element={<Verify setMessage={setMessage}  />} />
+            <Route path="verify" element={<Verify setMessage={setMessage} />} />
             <Route
               path="search"
               element={
                 <Search searchText={searchText} setMessage={setMessage} />
               }
             />
-            <Route path="profile" element={<Profile user={user}/>} />
-            <Route path="favourites" element={<Favourites/>}/>
+            <Route path="profile" element={<Profile user={user} />} />
+            <Route path="favourites" element={<Favourites />} />
             <Route path="news">
               <Route index element={<News setMessage={setMessage} />} />
               <Route path=":id" element={<SingleNews />} />
@@ -148,11 +148,11 @@ function App() {
                   element={<EditNews setMessage={setMessage} />}
                 />
               </Route>
-              <Route
-                path="videos"
-                
-              >
-                <Route index element={<AdminVideos setMessage={setMessage} />}/>
+              <Route path="videos">
+                <Route
+                  index
+                  element={<AdminVideos setMessage={setMessage} />}
+                />
                 <Route
                   path="add"
                   element={<AddVideo setMessage={setMessage} />}
@@ -173,13 +173,16 @@ function App() {
             </Route>
             <Route path="about" element={<About />} />
             <Route path="forget" element={<Email setMessage={setMessage} />} />
-            <Route path="enter_otp" element={<Otp setMessage={setMessage}/>} />
-            <Route path="change_password" element={<ChangePw setMessage={setMessage}/>} />
+            <Route path="enter_otp" element={<Otp setMessage={setMessage} />} />
+            <Route
+              path="change_password"
+              element={<ChangePw setMessage={setMessage} />}
+            />
 
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>
-        <div className="p-4 bg-white relative shadow md:px-6 md:py-8 dark:bg-gray-900">
+        <div className="p-4 bg-white relative shadow md:px-6 md:py-8 dark:bg-surface-600">
           <Footer />
         </div>
       </Router>

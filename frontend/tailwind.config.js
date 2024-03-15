@@ -5,14 +5,28 @@ module.exports = {
     "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    colors:{
-      'blackk':'#1D2639',
-      'grayy':'#465975',
-      'lightgrayy':'#7B8CA6',
-      'wheatt':'#E0E1DD'
-    }
+    colors: {
+      blackk: "#1D2639",
+      grayy: "#465975",
+      lightgrayy: "#7B8CA6",
+      wheatt: "#8b8b8b",
+      primary: {
+        600: "#ffc107",
+        500: "#ffc83b",
+        400: "#ffce58",
+        300: "#ffd572",
+        200: "#ffdc8a",
+        100: "#ffe3a2",
+      },
+      surface: {
+        600: "#121212",
+        500: "#282828",
+        400: "#3f3f3f",
+        300: "#575757",
+        200: "#717171",
+        100: "#8b8b8b",
+      },
+    },
   },
-  plugins: [
-    require("flowbite/plugin")
-  ],
+  plugins: [require("flowbite/plugin")],
 };

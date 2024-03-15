@@ -16,20 +16,19 @@ const AddCategory = ({ setMessage }) => {
   };
 
   return (
-    <div className="flex flex-row h-full md:h-screen bg-gray-50 dark:bg-gray-900 ">
+    <div className="flex flex-row h-full md:h-screen bg-gray-50 dark:bg-surface-600 ">
       <Aside />
       <main className=" px-6 flex-grow h-full md:h-auto">
         <Formik
           //   enableReinitialize
           initialValues={initial}
           onSubmit={async (data, { resetForm }) => {
-
-            let newdata =  new FormData();
-            newdata.append('image',data.image)
-            newdata.append('title',data.title)
-            newdata.append('description',data.description)
+            let newdata = new FormData();
+            newdata.append("image", data.image);
+            newdata.append("title", data.title);
+            newdata.append("description", data.description);
             // newdata.append('fileType','category')
-          
+
             try {
               const response = await create(newdata);
               if (response) {
@@ -40,14 +39,14 @@ const AddCategory = ({ setMessage }) => {
                 navigate(-1);
               }
             } catch (error) {
-              let message 
-              if(error.response){
-                message = error.response.data.error
-              }else{
-                message = error.message 
+              let message;
+              if (error.response) {
+                message = error.response.data.error;
+              } else {
+                message = error.message;
               }
               setMessage({
-                message: `${message }`,
+                message: `${message}`,
                 className: "warning",
               });
             }

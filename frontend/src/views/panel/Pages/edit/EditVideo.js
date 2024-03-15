@@ -32,7 +32,7 @@ const EditVideo = ({ setMessage }) => {
   };
 
   return (
-    <div className="flex flex-row h-full md:h-screen bg-gray-50 dark:bg-gray-900 ">
+    <div className="flex flex-row h-full md:h-screen bg-gray-50 dark:bg-surface-600 ">
       <Aside />
       <main className=" px-6 flex-grow h-full md:h-auto">
         <Formik

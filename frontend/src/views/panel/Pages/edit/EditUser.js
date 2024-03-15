@@ -26,21 +26,22 @@ const EditUser = ({ setMessage }) => {
     fetchUser(id);
   }, []);
 
-  let initial 
+  let initial;
 
- initial = cpDisabled? {
-    username: user.username || "",
-    email: user.email || "",
-  }:
-  {
-    username: user.username || "",
-    email: user.email || "",
-    password: "",
-    confirmPassword: "",
-  }
+  initial = cpDisabled
+    ? {
+        username: user.username || "",
+        email: user.email || "",
+      }
+    : {
+        username: user.username || "",
+        email: user.email || "",
+        password: "",
+        confirmPassword: "",
+      };
 
   return (
-    <div className="flex h-full md:h-screen bg-gray-50 dark:bg-gray-900 ">
+    <div className="flex h-full md:h-screen bg-gray-50 dark:bg-surface-600 ">
       <Aside />
       <main className="block px-6 w-full max-w-2xl h-full md:h-auto">
         <Formik
@@ -196,7 +197,6 @@ const EditUser = ({ setMessage }) => {
                     Cancel
                   </div>
                 </div>
-             
               </form>
             );
           }}

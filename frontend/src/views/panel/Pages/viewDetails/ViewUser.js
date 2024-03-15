@@ -28,7 +28,7 @@ const ViewUser = ({ setMessage }) => {
     fetchUser(id);
   }, []);
   return (
-    <div className="flex  h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="flex  h-screen bg-gray-50 dark:bg-surface-600">
       <Aside />
       <main className="h-full grow overflow-y-auto">
         <div className="container md:px-6 mx-auto grid">

@@ -43,7 +43,7 @@ const Dashboard = ({ setMessage }) => {
 
   return (
     <>
-      <div className="flex  h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="flex  h-screen bg-gray-50 dark:bg-surface-600">
         <Aside />
         <main className="h-full grow mx-auto md:px-6 overflow-y-auto">
           <h2 className="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">

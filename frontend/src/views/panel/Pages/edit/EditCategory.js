@@ -31,7 +31,7 @@ const EditCategory = ({ setMessage }) => {
   };
 
   return (
-    <div className="flex flex-row h-full md:h-screen bg-gray-50 dark:bg-gray-900 ">
+    <div className="flex flex-row h-full md:h-screen bg-gray-50 dark:bg-surface-600 ">
       <Aside />
       <main className=" px-6 flex-grow h-full md:h-auto">
         <Formik
@@ -41,7 +41,10 @@ const EditCategory = ({ setMessage }) => {
             try {
               const response = await update(id, data);
               if (response) {
-                setMessage({ message: "Category updated..", className: "success" });
+                setMessage({
+                  message: "Category updated..",
+                  className: "success",
+                });
                 navigate(-1);
               }
             } catch (error) {

@@ -31,7 +31,7 @@ const EditNews = ({ setMessage }) => {
   };
 
   return (
-    <div className="flex flex-row h-full md:h-screen bg-gray-50 dark:bg-gray-900 ">
+    <div className="flex flex-row h-full md:h-screen bg-gray-50 dark:bg-surface-600 ">
       <Aside />
       <main className=" px-6 flex-grow h-full md:h-auto">
         <Formik
@@ -109,7 +109,7 @@ const EditNews = ({ setMessage }) => {
                       <TextField
                         type="text"
                         name="uploader"
-                        value={news.user?news.user.username:"" }
+                        value={news.user ? news.user.username : ""}
                         disabled
                       />
                     </div>
@@ -140,7 +140,6 @@ const EditNews = ({ setMessage }) => {
                         alt=""
                       />
                     </div>
-                    
                   </div>
                 </div>
 
