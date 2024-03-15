@@ -4,8 +4,7 @@ import { SENDER_EMAIL, EMAIL_PASSWORD } from "../utils/config.js";
 
 class MailSender {
   SendEmail = async (email) => {
-    // const code = 100000 + Math.floor(Math.random() * 900000);
-    const code = 1234;
+    const code = 100000 + Math.floor(Math.random() * 900000);
     const savedCode = await Mails.saveToken(email, code);
     if (!savedCode) return false;
     try {
