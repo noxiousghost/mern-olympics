@@ -5,11 +5,11 @@ import TextField from "../Components/TextField";
 import { signupValidationSchema } from "../FormValidation/validationSchema";
 import { signup } from "../services/loginSignup";
 
-const Signup = ({setMessage}) => {
+const Signup = ({ setMessage }) => {
   const navigate = useNavigate();
   return (
     <div className="w-full flex justify-center py-8 ">
-      <div className="p-4 w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 ">
+      <div className="p-4 w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-surface-500 dark:border-surface-400 ">
         <Formik
           initialValues={{
             username: "",
@@ -21,18 +21,23 @@ const Signup = ({setMessage}) => {
             try {
               const response = await signup(data);
               if (response) {
-                resetForm({})
-                setMessage({message:`Welcome ${response.username}. Please verify your email and continue!`, className:'success' })
+                resetForm({});
+                setMessage({
+                  message: `Welcome ${response.username}. Please verify your email and continue!`,
+                  className: "success",
+                });
                 window.localStorage.setItem(
                   "signupEmail",
                   JSON.stringify(response.email)
                 );
-                 
-                    navigate("/verify");    
-                     
+
+                navigate("/verify");
               }
             } catch (error) {
-              setMessage({message:`${error.response.data.error}`, className:'warning' })
+              setMessage({
+                message: `${error.response.data.error}`,
+                className: "warning",
+              });
             }
           }}
           validationSchema={signupValidationSchema}
@@ -45,19 +50,19 @@ const Signup = ({setMessage}) => {
                 autoComplete="off"
               >
                 <h5 className="text-xl font-medium text-gray-900 dark:text-white">
-                  Sign up to Fun Olympics 2022
+                  Sign up to Fun Olympics 2024
                 </h5>
                 <div>
                   <label
                     htmlFor="username"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
-                    Username
+                    Full Name
                   </label>
                   <TextField
                     type="text"
                     name="username"
-                    placeholder="username"
+                    placeholder="Enter your full name"
                   />
                 </div>
                 <div>
@@ -65,7 +70,7 @@ const Signup = ({setMessage}) => {
                     htmlFor="email"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
-                    Your email
+                    Your Email
                   </label>
                   <TextField
                     type="email"
@@ -78,7 +83,7 @@ const Signup = ({setMessage}) => {
                     htmlFor="password"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
-                    Your password
+                    Your Password
                   </label>
                   <TextField
                     type="password"
@@ -93,7 +98,7 @@ const Signup = ({setMessage}) => {
                     htmlFor="confirm-password"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
-                    Confirm password
+                    Confirm Password
                   </label>
                   <TextField
                     type="password"
@@ -104,17 +109,17 @@ const Signup = ({setMessage}) => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="w-full text-white bg-primary-600 hover:bg-primary-600 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-semibold rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-600 dark:focus:ring-yellow-400"
                 >
                   Sign up
                 </button>
                 <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-                  Already registered?
+                  Already have an account?
                   <Link
                     to="/login"
-                    className="text-blue-700 hover:underline dark:text-blue-500"
+                    className="text-primary-600 hover:underline dark:text-primary-500"
                   >
-                    Login to your account
+                    &nbsp;Login
                   </Link>
                 </div>
               </form>
