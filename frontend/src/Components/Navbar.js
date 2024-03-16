@@ -22,9 +22,9 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
   }, [path]);
 
   const lightText =
-    "block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white";
+    "block py-2 pr-4 pl-3 text-white bg-primary-700 rounded md:bg-transparent md:text-primary-700 md:p-0 dark:text-white";
   const normalText =
-    "block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
+    "block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-700 md:p-0 md:dark:hover:text-white dark:text-gray-200 dark:hover:bg-surface-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
 
   return (
     <div
@@ -63,7 +63,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
                 <div
                   className={`${
                     showUserMenu ? "block" : "hidden"
-                  } absolute right-16 top-16 md:right-5 w-52 md:top-14 text-base list-none bg-white rounded-lg divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600`}
+                  } absolute right-16 top-16 md:right-5 w-52 md:top-14 text-base list-none bg-white rounded-lg divide-y divide-gray-100 shadow dark:bg-surface-500 dark:divide-surface-400`}
                   onClick={() => {
                     setShowUserMenu(false);
                   }}
@@ -72,15 +72,15 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
                     <span className="block text-sm text-gray-900 dark:text-white">
                       {user.username}
                     </span>
-                    <span className="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">
+                    <span className="block text-sm font-medium text-gray-300 truncate dark:text-gray-200">
                       {user.email}
                     </span>
                   </div>
 
-                  <div className="w-full py-1 text-gray-900 bg-white border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                  <div className="w-full py-1 text-gray-900 bg-white border border-gray-200 dark:bg-surface-500 dark:border-surface-400 dark:text-white">
                     <Link
                       to="/profile"
-                      className="inline-flex relative items-center py-2 px-4 w-full text-sm font-medium rounded-t-lg border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+                      className="inline-flex relative items-center py-2 px-4 w-full text-sm font-medium rounded-t-lg border-b border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
                     >
                       <CgProfile className="mr-2 w-4 h-4 fill-current" />
                       Profile
@@ -88,7 +88,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
                     {user.isAdmin && (
                       <Link
                         to="/panel"
-                        className="inline-flex relative items-center py-2 px-4 w-full text-sm font-medium border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+                        className="inline-flex relative items-center py-2 px-4 w-full text-sm font-medium border-b border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
                       >
                         <svg
                           aria-hidden="true"
@@ -105,7 +105,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
 
                     <Link
                       to="/favourites"
-                      className="inline-flex relative items-center py-2 px-4 w-full text-sm font-medium border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+                      className="inline-flex relative items-center py-2 px-4 w-full text-sm font-medium border-b border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
                     >
                       <AiOutlineStar className="mr-2 w-4 h-4 fill-current" />
                       Favourites
@@ -122,7 +122,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
                         });
                         navigate("/");
                       }}
-                      className="inline-flex relative items-center py-2 px-4 w-full text-sm font-medium rounded-b-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+                      className="inline-flex relative items-center py-2 px-4 w-full text-sm font-medium rounded-b-lg hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
                     >
                       <BiLogOut className="mr-2 w-4 h-4 fill-current" />
                       Logout
@@ -133,7 +133,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
             ) : (
               <>
                 <button
-                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-thin lg:font-medium rounded-lg truncate text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="text-white bg-primary-600 hover:bg-primary-600 focus:ring-4 focus:outline-none focus:ring-yellow-400 lg:font-semibold rounded-lg truncate text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                   onClick={() => {
                     setShowLoginMenu(!showLoginMenu);
                   }}
@@ -144,7 +144,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
                 <div
                   className={`${
                     showLoginMenu ? "block" : "hidden"
-                  } absolute w-24 right-28 top-16 md:right-4 md:top-16 text-base list-none w bg-white rounded-lg divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600`}
+                  } absolute w-24 right-28 top-16 md:right-4 md:top-16 text-base list-none w bg-white rounded-lg divide-y divide-gray-100 shadow dark:bg-surface-500 dark:divide-surface-400`}
                   onClick={() => {
                     setShowLoginMenu(false);
                   }}
@@ -172,18 +172,18 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
             )}
 
             <button
-              className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              className="inline-flex items-center p-2 text-sm text-gray-300 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-200 dark:hover:bg-surface-500 dark:focus:ring-gray-600"
               onClick={(e) => {
                 e.preventDefault();
                 setShowMenu(!showMenu);
               }}
             >
-              <BiSearch className="w-5 h-5 text-gray-500" />
+              <BiSearch className="w-5 h-5 text-gray-300" />
               <span className="sr-only">Search icon</span>
             </button>
 
             <button
-              className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              className="inline-flex items-center p-2 text-sm text-gray-300 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-200 dark:hover:bg-surface-500 dark:focus:ring-gray-600"
               onClick={(e) => {
                 e.preventDefault();
                 setShowMenu(!showMenu);
@@ -200,7 +200,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
           >
             <div className={`relative block mt-4 mx-2 md:mt-0 order-2`}>
               <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                <BiSearch className="w-5 h-5 text-gray-500" />
+                <BiSearch className="w-5 h-5 text-gray-300" />
               </div>
               <input
                 type="text"
@@ -208,7 +208,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
                 onFocus={() => {
                   navigate("/search");
                 }}
-                className="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-surface-500 dark:surface-surface-400 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 placeholder="Search..."
               />
             </div>
@@ -244,18 +244,13 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
                 </Link>
               </li>
               <li>
-                <a href="http://127.0.0.1:5500/frontend/src/run/fixtures.html">
-                  fixtures
-                </a>
-              </li>
-              {/* <li>
                 <Link
                   to="/live"
                   className={path === "/live" ? lightText : normalText}
                 >
                   Live
                 </Link>
-              </li> */}
+              </li>
             </ul>
           </div>
         </div>
