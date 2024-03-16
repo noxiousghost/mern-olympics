@@ -125,16 +125,16 @@ const VideoPlayer = ({ user, setMessage }) => {
                 >
                   <div className="w-auto h-full">
                     {fav ? (
-                      <BsFillStarFill className="w-6 h-6" />
+                      <BsFillStarFill className="w-6 h-6 text-primary-600" />
                     ) : (
                       <AiOutlineStar className="w-7 h-7" />
                     )}
                   </div>{" "}
                   <div>
                     {fav ? (
-                      <span className="p-2">Added to favourites</span>
+                      <span className="p-1">Added to favourites</span>
                     ) : (
-                      <span className="p-2">Add to favourites</span>
+                      <span className="p-1">Add to favourites</span>
                     )}
                   </div>
                 </div>

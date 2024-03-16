@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NewsCard = ({details}) => {
-const { linkUrl, imgUrl, title } = details;
+const NewsCard = ({ details }) => {
+  const { linkUrl, imgUrl, title } = details;
   return (
     <>
-      <div className="max-w-lg md:max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <div className="max-w-lg md:max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-surface-500 dark:border-surface-400">
         <Link to={linkUrl}>
           <img
             className="rounded-t-lg w-full h-auto md:h-60"
@@ -15,13 +15,13 @@ const { linkUrl, imgUrl, title } = details;
         </Link>
         <div className="p-5">
           <Link to={linkUrl}>
-            <p className="mb-3 hover:underline font-bold  text-wheatt dark:text-gray-400">
+            <p className="mb-3 hover:underline font-bold  text-wheatt dark:text-gray-200">
               {title}
             </p>
           </Link>
           <Link
             to={linkUrl}
-            className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-primary-600 rounded-lg hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-yellow-400 dark:focus:ring-yellow-500"
           >
             Read more
             <svg

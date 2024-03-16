@@ -28,7 +28,9 @@ const ResponsivePlayer = ({ url, onProgress }) => {
       </div>
       <div className="flex flex-row justify-center m-2">
         <button
-          className="text-white w-1/2 bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="text-white w-1/2 font-semibold rounded-lg text-sm px-5 py-2.5 text-center bg-primary-600 hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-yellow-400 dark:focus:ring-yellow-500"
+          // className="text-white w-1/2 bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+
           onClick={() => setPlaying(!playing)}
         >
           {playing ? "Pause" : "Play"}

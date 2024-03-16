@@ -38,8 +38,8 @@ const Email = ({ setMessage }) => {
 
   return (
     <div className="w-full flex justify-center py-8">
-      <div className="p-4 w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-        <div className="bg-white dark:bg-gray-800 dark:border-gray-700 min-h-80 rounded-lg text-center">
+      <div className="p-4 w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-surface-500 dark:border-surface-400">
+        <div className="bg-white dark:bg-surface-500 dark:border-surface-400 min-h-80 rounded-lg text-center">
           <h1 className="text-xl font-medium text-gray-900 dark:text-white mb-4">
             Forget Password
           </h1>
@@ -54,7 +54,7 @@ const Email = ({ setMessage }) => {
               </label>
             </div>
             <input
-              className="bg-gray-50 border mb-4 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              className="bg-gray-50 mb-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-surface-400 dark:border-gray-500 dark:placeholder-gray-300 dark:text-white"
               type="email"
               placeholder="Enter email address here"
               onChange={(e) => {
@@ -64,7 +64,7 @@ const Email = ({ setMessage }) => {
             />
             <button
               onClick={sendOtp}
-              className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="w-full text-white bg-primary-600 rounded-lg hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-yellow-400 dark:focus:ring-yellow-500 px-5 py-2.5"
             >
               Send OTP
             </button>

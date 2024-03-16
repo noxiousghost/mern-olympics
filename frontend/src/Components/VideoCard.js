@@ -7,7 +7,7 @@ const VideoCard = ({ details }) => {
   const { title, linkUrl, videoUrl, views, addedDate } = details;
   return (
     <>
-      <div className="max-w-lg md:max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <div className="max-w-lg md:max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-surface-500 dark:border-surface-400">
         <div className="rounded-t-lg h-52 w-full md:h-60">
           <Link to={linkUrl}>
             <ReactPlayer
