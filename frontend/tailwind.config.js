@@ -9,7 +9,7 @@ module.exports = {
       blackk: "#1D2639",
       grayy: "#465975",
       lightgrayy: "#7B8CA6",
-      wheatt: "#8b8b8b",
+      wheatt: "white",
       primary: {
         600: "#ffc107",
         500: "#ffc83b",
