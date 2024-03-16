@@ -2,12 +2,14 @@
 
 A full stack web app for sports broadcasting made using the MERN stack
 
-##TO do
+#TO do
 
-# change bg color of every html pages
+-change color in profile and admin dashboards
 
-# change bg color of jsx pages
+-redesign home and about page
 
-# create secondary color scheme
+-update live video
+-change the images inc. logo, icons etc.
+-add html pages as react pages
 
-# fix signup (add country and fav game)
+-fix signup (add country and fav game)
