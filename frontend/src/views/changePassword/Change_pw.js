@@ -23,7 +23,7 @@ const Change_pw = ({ setMessage }) => {
 
   return (
     <div className="w-full flex justify-center py-8">
-      <div className="p-4 w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+      <div className="p-4 w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-surface-500 dark:border-surface-400">
         <Formik
           enableReinitialize
           initialValues={{
