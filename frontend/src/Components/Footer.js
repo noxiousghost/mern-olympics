@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="relative">
-      <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:mt-8" />
+      <hr className="my-6 border-gray-200 sm:mx-auto dark:border-surface-400 lg:mt-8" />
       <div className="sm:flex sm:items-center sm:justify-center mb-4">
         <Link to="/" className="flex items-center mb-4 sm:mb-0">
           <img src="/olympics.png" className="mr-3 h-8" alt="Flowbite Logo" />
