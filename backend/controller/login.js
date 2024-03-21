@@ -21,7 +21,7 @@ loginRouter.post("/", async (request, response) => {
     isAdmin: user.isAdmin,
     id: user._id,
   };
-  const token = jwt.sign(userForToken, SECRET, { expiresIn: 60 * 60 });
+  const token = jwt.sign(userForToken, SECRET, { expiresIn: "365d" });
 
   user.logged_in = user.logged_in + 1;
   await user.save();
