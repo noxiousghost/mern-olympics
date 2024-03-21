@@ -22,15 +22,15 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
   }, [path]);
 
   const lightText =
-    "block py-2 pr-4 pl-3 text-white bg-primary-700 rounded md:bg-transparent md:text-primary-700 md:p-0 dark:text-white";
+    "block py-2 pr-4 pl-3 text-red bg-primary-700 rounded md:bg-transparent md:text-primary-600 md:p-0 dark:text-red";
   const normalText =
-    "block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-700 md:p-0 md:dark:hover:text-white dark:text-gray-200 dark:hover:bg-surface-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
+    "block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-700 md:p-0 md:dark:hover:text-white dark:text-gray-200 dark:hover:bg-surface-500 dark:hover:text-primary-200 md:dark:hover:bg-yellow-700 dark:border-surface-400";
 
   return (
     <div
       className={`${showNavbar ? "block mb-14" : "hidden mb-0"}  left-0 dark`}
     >
-      <nav className="bg-white px-2 sm:px-4 py-2.5 dark:bg-surface-600 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+      <nav className="bg-white px-2 sm:px-4 py-2.5 dark:bg-surface-600 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-primary-600">
         <div className="container space-y-3 sm:space-y-0 flex flex-wrap sm:flex-nowrap sm:flex-row w-full justify-around md:justify-between items-center mx-auto">
           <Link to="/" className="flex items-center ">
             <img
@@ -39,7 +39,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
               alt="Olympics Logo"
             />
             <span className="self-center text-base md:text-xl font-semibold whitespace-nowrap dark:text-white">
-              Olympics
+              FunOlympics
             </span>
           </Link>
 
@@ -47,7 +47,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
             {user !== null ? (
               <>
                 <button
-                  className="flex text-sm p-1 bg-gray-800 rounded-full focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600"
+                  className="flex text-sm p-1 bg-surface-600 rounded-full focus:ring-2 focus:ring-gray-300 dark:focus:ring-surface-400"
                   onClick={(e) => {
                     e.preventDefault();
                     setShowUserMenu(!showUserMenu);
@@ -80,7 +80,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
                   <div className="w-full py-1 text-gray-900 bg-white border border-gray-200 dark:bg-surface-500 dark:border-surface-400 dark:text-white">
                     <Link
                       to="/profile"
-                      className="inline-flex relative items-center py-2 px-4 w-full text-sm font-medium rounded-t-lg border-b border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+                      className="inline-flex relative items-center py-2 px-4 w-full text-sm font-medium rounded-t-lg border-b border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:border-surface-400 dark:hover:bg-surface-400 dark:hover:text-white dark:focus:ring-surface-400 dark:focus:text-white"
                     >
                       <CgProfile className="mr-2 w-4 h-4 fill-current" />
                       Profile
@@ -88,7 +88,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
                     {user.isAdmin && (
                       <Link
                         to="/panel"
-                        className="inline-flex relative items-center py-2 px-4 w-full text-sm font-medium border-b border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+                        className="inline-flex relative items-center py-2 px-4 w-full text-sm font-medium border-b border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:border-surface-400 dark:hover:bg-surface-400 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
                       >
                         <svg
                           aria-hidden="true"
@@ -105,7 +105,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
 
                     <Link
                       to="/favourites"
-                      className="inline-flex relative items-center py-2 px-4 w-full text-sm font-medium border-b border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+                      className="inline-flex relative items-center py-2 px-4 w-full text-sm font-medium border-b border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:border-surface-400 dark:hover:bg-surface-400 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
                     >
                       <AiOutlineStar className="mr-2 w-4 h-4 fill-current" />
                       Favourites
@@ -122,7 +122,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
                         });
                         navigate("/");
                       }}
-                      className="inline-flex relative items-center py-2 px-4 w-full text-sm font-medium rounded-b-lg hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
+                      className="inline-flex relative items-center py-2 px-4 w-full text-sm font-medium rounded-b-lg hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-2 focus:ring-primary-700 focus:text-primary-700 dark:border-surface-400 dark:hover:bg-surface-400 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white"
                     >
                       <BiLogOut className="mr-2 w-4 h-4 fill-current" />
                       Logout
@@ -153,7 +153,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
                     <li>
                       <Link
                         to="/login"
-                        className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                        className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-surface-400 dark:text-gray-200 dark:hover:text-white"
                       >
                         Login
                       </Link>
@@ -161,7 +161,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
                     <li>
                       <Link
                         to="/signup"
-                        className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                        className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-surface-400 dark:text-gray-200 dark:hover:text-white"
                       >
                         Signup
                       </Link>
@@ -172,7 +172,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
             )}
 
             <button
-              className="inline-flex items-center p-2 text-sm text-gray-300 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-200 dark:hover:bg-surface-500 dark:focus:ring-gray-600"
+              className="inline-flex items-center p-2 text-sm text-gray-300 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-200 dark:hover:bg-surface-500 dark:focus:ring-surface-400"
               onClick={(e) => {
                 e.preventDefault();
                 setShowMenu(!showMenu);
@@ -183,7 +183,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
             </button>
 
             <button
-              className="inline-flex items-center p-2 text-sm text-gray-300 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-200 dark:hover:bg-surface-500 dark:focus:ring-gray-600"
+              className="inline-flex items-center p-2 text-sm text-gray-300 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-200 dark:hover:bg-surface-500 dark:focus:ring-surface-400"
               onClick={(e) => {
                 e.preventDefault();
                 setShowMenu(!showMenu);
@@ -213,7 +213,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
               />
             </div>
             <ul
-              className="flex flex-col p-4 mt-4 mx-2 order-1 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-surface-600 dark:border-gray-700"
+              className="flex flex-col p-4 mt-4 mx-2 order-1 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-surface-500 md:dark:bg-surface-600 dark:border-surface-400"
               onClick={() => {
                 setShowMenu(false);
               }}
