@@ -22,8 +22,8 @@ const Profile = ({ user }) => {
     <>
       <div className="h-full bg-gray-50 dark:bg-surface-600 py-10">
         <div className="border-b-2 border-b-gray-700  flex flex-col space-y-4 md:space-y-0 md:flex-row   ">
-          {/* p-4 w-full max-w-sm  rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 */}
-          <div className="w-full md:w-2/5 p-4 sm:p-6 lg:p-8 rounded-lg dark:bg-gray-800 dark:border-gray-700 shadow-md">
+          {/* p-4 w-full max-w-sm  rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-surface-500 dark:border-surface-400 */}
+          <div className="w-full md:w-2/5 p-4 sm:p-6 lg:p-8 rounded-lg dark:bg-surface-500 dark:border-surface-400 shadow-md">
             <div className="flex justify-between  ">
               <span className="text-xl font-semibold block">User Profile</span>
               <button className="-mt-2 text-md font-bold text-white bg-gray-700 rounded-full px-5 py-2 hover:bg-gray-800">
@@ -44,7 +44,7 @@ const Profile = ({ user }) => {
             </div>
           </div>
 
-          <div className="w-full md:w-3/5 p-8  dark:bg-gray-800 rounded-lg dark:border-gray-700 lg:ml-4 shadow-md">
+          <div className="w-full md:w-3/5 p-8  dark:bg-surface-500 rounded-lg dark:border-surface-400 lg:ml-4 shadow-md">
             <div className="rounded  shadow p-6">
               <div className="pb-6">
                 <label
@@ -57,7 +57,7 @@ const Profile = ({ user }) => {
                   <input
                     disabled
                     id="username"
-                    className="border-1  rounded-xl px-4 py-2 w-full  dark:bg-gray-800 dark:border-gray-700 "
+                    className="border-1  rounded-xl px-4 py-2 w-full  dark:bg-surface-500 dark:border-surface-400 "
                     type="text"
                     value={user ? user.username : ""}
                   />
@@ -73,7 +73,7 @@ const Profile = ({ user }) => {
                 <input
                   disabled
                   id="email"
-                  className="border-1  rounded-xl px-4 py-2 w-full dark:bg-gray-800 dark:border-gray-700"
+                  className="border-1  rounded-xl px-4 py-2 w-full dark:bg-surface-500 dark:border-surface-400"
                   type="email"
                   value={user ? user.email : ""}
                 />
