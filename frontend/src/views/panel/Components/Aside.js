@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BiCategory, BiLogOut, BiHome, BiNews } from "react-icons/bi";
-import { ImVideoCamera } from "react-icons/im";
+import { ImVideoCamera, ImTv, ImPaste, ImStatsBars } from "react-icons/im";
 import { TbDeviceAnalytics } from "react-icons/tb";
 import { FaUsers } from "react-icons/fa";
 import { getOne } from "../../../services/users";
@@ -31,17 +31,17 @@ const Aside = () => {
   const notGlow = `inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200`;
   const location = useLocation();
   const path = location.pathname;
-  const glowAside = `absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg`;
+  const glowAside = `absolute inset-y-0 left-0 w-1 bg-pink-600 rounded-tr-lg rounded-br-lg`;
   return (
     <>
-      <aside className="hidden w-64 overflow-y-auto scroll bg-white dark:bg-gray-800 md:block flex-shrink-0">
-        <div className="py-4 text-gray-500 dark:text-gray-400">
-          <Link
+      <aside className="hidden w-64 overflow-y-auto scroll bg-white dark:bg-surface-500 md:block flex-shrink-0">
+        <div className="py-4 text-gray-400 dark:text-gray-300">
+          {/* <Link
             className="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
             to="/"
           >
-            Admin panel
-          </Link>
+            Dashboard
+          </Link> */}
           <ul className="mt-6">
             <li className="relative px-6 py-3">
               <span
@@ -73,6 +73,20 @@ const Aside = () => {
             </li>
             <li className="relative px-6 py-3">
               <span
+                className={path === "/panel/news" ? glowAside : ""}
+                aria-hidden="true"
+              ></span>
+              <Link
+                className={path === "/panel/news" ? glowText : notGlow}
+                to="/panel/news"
+              >
+                <BiNews className="w-5 h-5" />
+
+                <span className="ml-4">News</span>
+              </Link>
+            </li>
+            <li className="relative px-6 py-3">
+              <span
                 className={path === "/panel/categories" ? glowAside : ""}
                 aria-hidden="true"
               ></span>
@@ -98,35 +112,6 @@ const Aside = () => {
                 <span className="ml-4">Videos</span>
               </Link>
             </li>
-            {/* <li className="relative px-6 py-3">
-              <span
-                className={path === "/panel/highlights" ? glowAside : ""}
-                aria-hidden="true"
-              ></span>
-              <Link
-                className={path === "/panel/highlights" ? glowText : notGlow}
-                to="/panel/highlights"
-              >
-                <BiNews className="w-5 h-5" />
-
-                <span className="ml-4">Highlights</span>
-              </Link>
-            </li> */}
-
-            <li className="relative px-6 py-3">
-              <span
-                className={path === "/panel/news" ? glowAside : ""}
-                aria-hidden="true"
-              ></span>
-              <Link
-                className={path === "/panel/news" ? glowText : notGlow}
-                to="/panel/news"
-              >
-                <BiNews className="w-5 h-5" />
-
-                <span className="ml-4">News</span>
-              </Link>
-            </li>
             <li className="relative px-6 py-3">
               <span
                 className={path === "/panel/analytics" ? glowAside : ""}
@@ -141,11 +126,54 @@ const Aside = () => {
                 <span className="ml-4">Analytics</span>
               </Link>
             </li>
+            <li className="relative px-6 py-3">
+              <span
+                className={path === "/panel/highlights" ? glowAside : ""}
+                aria-hidden="true"
+              ></span>
+              <Link
+                className={path === "/panel/highlights" ? glowText : notGlow}
+                to="/panel/highlights"
+              >
+                <ImTv className="w-5 h-5" />
+
+                <span className="ml-4">Highlights</span>
+              </Link>
+            </li>
+            <li className="relative px-6 py-3">
+              <span
+                className={path === "/panel/schedule" ? glowAside : ""}
+                aria-hidden="true"
+              ></span>
+              <Link
+                className={path === "/panel/schedule" ? glowText : notGlow}
+                to="#"
+              >
+                <ImPaste className="w-5 h-5" />
+
+                <span className="ml-4">Schedule</span>
+              </Link>
+            </li>
+            <li className="relative px-6 py-3">
+              <span
+                className={path === "/panel/data" ? glowAside : ""}
+                aria-hidden="true"
+              ></span>
+              <Link
+                className={path === "/panel/data" ? glowText : notGlow}
+                to="#"
+              >
+                <ImStatsBars className="w-5 h-5" />
+
+                <span className="ml-4">Match Data</span>
+              </Link>
+            </li>
           </ul>
+
           <div className="px-6 my-6">
             <Link
               to="/"
-              className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+              className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-pink-600 border border-transparent rounded-lg active:bg-pink-600 hover:bg-pink-700 focus:outline-none focus:shadow-outline-pink"
             >
               Back to home
               <span className="ml-2" aria-hidden="true">
