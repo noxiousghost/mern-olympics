@@ -4,6 +4,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { getAll } from "../../../services/users";
+import { Checkbox } from "flowbite-react";
 
 const UsersTable = ({ setMessage }) => {
   const [search, setSearch] = useState("");
@@ -40,18 +41,30 @@ const UsersTable = ({ setMessage }) => {
         // primary: "#268bd2",
         primary: "#f0f2f5",
 
-        secondary: "#2aa198",
+        secondary: "#bf125d",
       },
       background: {
         // default: "#002b36",
-        default: "#1f2937",
+        default: "#282828",
       },
       context: {
-        background: "#cb4b16",
+        background: "#bf125d",
         text: "#FFFFFF",
       },
       divider: {
-        default: "#073642",
+        default: "#f792be",
+      },
+      selected: {
+        default: "#301723",
+        text: "rgba(255, 255, 255, 1)",
+      },
+      highlightOnHover: {
+        default: "#2e1f26",
+        text: "rgba(255, 255, 255, 1)",
+      },
+      striped: {
+        default: "#FAFAFA",
+        text: "rgba(0, 0, 0, 0.87)",
       },
       action: {
         button: "rgba(0,0,0,.54)",
@@ -61,6 +74,8 @@ const UsersTable = ({ setMessage }) => {
     },
     "dark"
   );
+
+  const customStyles = {};
 
   const columns = [
     {
@@ -98,7 +113,7 @@ const UsersTable = ({ setMessage }) => {
               navigate(`/panel/users/edit/${row.id}`);
             }}
           >
-            <FaEdit className="w-6 h-6 fill-blue-800 hover:fill-blue-600" />
+            <FaEdit className="w-6 h-6 fill-pink-800 hover:fill-pink-600" />
           </button>
           {/* <button>
             <MdDeleteOutline className="w-7 h-7 fill-red-800 hover:fill-red-600" />
@@ -114,6 +129,7 @@ const UsersTable = ({ setMessage }) => {
   return (
     <DataTable
       title="User List"
+      customStyles={customStyles}
       columns={columns}
       data={filtered}
       pagination
@@ -127,8 +143,8 @@ const UsersTable = ({ setMessage }) => {
       subHeaderComponent={
         <input
           type="text"
-          className="block p-2 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Search here"
+          className="block p-2 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-pink-500 focus:border-pink-500 dark:bg-surface-400 dark:border-surface-300 dark:placeholder-gray-300 dark:text-white dark:focus:ring-pink-500 dark:focus:border-pink-500"
+          placeholder="Search Users"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
