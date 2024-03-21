@@ -68,9 +68,9 @@ const EditUser = ({ setMessage }) => {
               <form
                 onSubmit={handleSubmit}
                 autoComplete="off"
-                className="relative bg-white rounded-lg shadow dark:bg-gray-700"
+                className="relative bg-white rounded-lg shadow dark:bg-surface-500"
               >
-                <div className="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
+                <div className="flex justify-between items-start p-4 rounded-t border-b dark:border-surface-400">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                     Edit user
                   </h3>
@@ -106,7 +106,7 @@ const EditUser = ({ setMessage }) => {
                       <TextField
                         type="text"
                         name="username"
-                        // className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        // className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-pink-600 focus:border-pink-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-pink-500 dark:focus:border-pink-500"
                         // value={user.username || ""}
                         // onChange={handleInputChange}
                         value={values.username}
@@ -125,7 +125,7 @@ const EditUser = ({ setMessage }) => {
                         type="email"
                         name="email"
                         value={values.email}
-                        // className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        // className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-pink-600 focus:border-pink-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-pink-500 dark:focus:border-pink-500"
                         placeholder="example@company.com"
                         // onChange={handleInputChange}
                         disabled
@@ -149,7 +149,7 @@ const EditUser = ({ setMessage }) => {
                         name="password"
                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                         title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
-                        // className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        // className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-pink-600 focus:border-pink-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-pink-500 dark:focus:border-pink-500"
                         placeholder="••••••••"
                       />
                     </div>
@@ -167,29 +167,29 @@ const EditUser = ({ setMessage }) => {
                       <TextField
                         type="password"
                         name="confirmPassword"
-                        // className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        // className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-pink-600 focus:border-pink-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-pink-500 dark:focus:border-pink-500"
                         placeholder="••••••••"
                       />
                     </div>
                   </div>
                 </div>
                 <div
-                  className="text-white bg-gray-700 cursor-pointer hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-gray-300"
+                  className="w-1/3 mb-5 ml-52 text-white bg-gray-700 cursor-pointer hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-surface-300 dark:hover:bg-surface-200 dark:focus:ring-gray-300"
                   onClick={() => {
                     setCpDisabled(!cpDisabled);
                   }}
                 >
                   {cpDisabled ? "Change password" : "Hide"}
                 </div>
-                <div className="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                <div className="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-surface-400">
                   <button
                     type="submit"
-                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    className="text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800"
                   >
                     Save all
                   </button>
                   <div
-                    className="text-white bg-gray-700 cursor-pointer hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-gray-300"
+                    className="text-white bg-surface-400 cursor-pointer hover:bg-surface-600 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-surface-300 dark:hover:bg-surface-200 dark:focus:ring-gray-300"
                     onClick={() => {
                       navigate(-1);
                     }}
