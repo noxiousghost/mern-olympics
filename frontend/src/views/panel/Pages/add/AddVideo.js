@@ -75,9 +75,9 @@ const AddVideo = ({ setMessage }) => {
               <form
                 onSubmit={handleSubmit}
                 autoComplete="off"
-                className="relative bg-white rounded-lg shadow dark:bg-gray-700"
+                className="relative bg-white rounded-lg shadow dark:bg-surface-500"
               >
-                <div className="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
+                <div className="flex justify-between items-start p-4 rounded-t border-b dark:border-surface-400">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                     Add video
                   </h3>
@@ -113,7 +113,7 @@ const AddVideo = ({ setMessage }) => {
                       <TextField
                         type="text"
                         name="title"
-                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-pink-600 focus:border-pink-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-pink-500 dark:focus:border-pink-500"
                         placeholder="Enter title here..."
                         required
                       />
@@ -127,14 +127,18 @@ const AddVideo = ({ setMessage }) => {
                       </label>
                       <select
                         name="category_id"
-                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-pink-600 focus:border-pink-600 block w-full p-2.5 dark:bg-surface-400 dark:border-surface-300 dark:placeholder-gray-200 dark:text-white dark:focus:ring-pink-500 dark:focus:border-pink-500"
                         onChange={(event) =>
                           setFieldValue("category_id", event.target.value)
                         }
                         required
                         defaultValue={"DEFAULT"}
                       >
-                        <option value="DEFAULT" disabled>
+                        <option
+                          value="DEFAULT"
+                          disabled
+                          className="text-gray-300"
+                        >
                           Choose a category ...
                         </option>
                         {/* <option value="" selected disabled>
@@ -176,7 +180,7 @@ const AddVideo = ({ setMessage }) => {
                         placeholder="Enter description here...."
                         required
                         // value={values.description}
-                        // className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        // className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-pink-600 focus:border-pink-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-pink-500 dark:focus:border-pink-500"
                         // onChange={handleInputChange}
                       />
                     </div>
@@ -203,7 +207,7 @@ const AddVideo = ({ setMessage }) => {
                       />
 
                       {/* <img
-                        className="w-full max-h-fit shadow-sm bg-gray-50 border p-2 rounded-md border-gray-300 text-gray-900 sm:text-sm  focus:ring-blue-600 focus:border-blue-600   dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="w-full max-h-fit shadow-sm bg-gray-50 border p-2 rounded-md border-gray-300 text-gray-900 sm:text-sm  focus:ring-pink-600 focus:border-pink-600   dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-pink-500 dark:focus:border-pink-500"
                         src={category.video}
                         alt=""
                       /> */}
@@ -211,15 +215,15 @@ const AddVideo = ({ setMessage }) => {
                   </div>
                 </div>
 
-                <div className="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                <div className="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-surface-400">
                   <button
                     type="submit"
-                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    className="text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800"
                   >
                     Add
                   </button>
                   <div
-                    className="text-white bg-gray-700 cursor-pointer hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-500 dark:focus:ring-gray-300"
+                    className="text-white bg-surface-400 cursor-pointer hover:bg-surface-600 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-surface-300 dark:hover:bg-surface-200 dark:focus:ring-gray-300"
                     onClick={() => {
                       navigate(-1);
                     }}

@@ -68,7 +68,7 @@ const Analytics = ({ setMessage }) => {
               onClick={() => {
                 navigate("/panel/users");
               }}
-              className="cursor-pointer flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+              className="cursor-pointer flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-surface-500"
             >
               <div className="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
                 <FaUsers className="w-5 h-5" />
@@ -87,7 +87,7 @@ const Analytics = ({ setMessage }) => {
               onClick={() => {
                 navigate("/panel/videos");
               }}
-              className="cursor-pointer flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+              className="cursor-pointer flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-surface-500"
             >
               <div className="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
                 <MdOutlineVideoSettings className="w-5 h-5" />
@@ -106,7 +106,7 @@ const Analytics = ({ setMessage }) => {
               onClick={() => {
                 navigate("/panel/news");
               }}
-              className="cursor-pointer flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+              className="cursor-pointer flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-surface-500"
             >
               <div className="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
                 <BiNews className="w-5 h-5" />
@@ -125,7 +125,7 @@ const Analytics = ({ setMessage }) => {
               onClick={() => {
                 navigate("/panel/categories");
               }}
-              className="cursor-pointer flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+              className="cursor-pointer flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-surface-500"
             >
               <div className="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
                 <BiCategory className="w-5 h-5" />
@@ -143,7 +143,7 @@ const Analytics = ({ setMessage }) => {
               // onClick={() => {
               //   navigate("/panel/categories");
               // }}
-              className="cursor-pointer flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+              className="cursor-pointer flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-surface-500"
             >
               <div className="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
                 <IoLogInSharp className="w-5 h-5" />
@@ -161,7 +161,7 @@ const Analytics = ({ setMessage }) => {
               // onClick={() => {
               //   navigate("/panel/categories");
               // }}
-              className="cursor-pointer flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+              className="cursor-pointer flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-surface-500"
             >
               <div className="p-3 mr-4 text-red-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-red-500">
                 <FaStar className="w-5 h-5" />
@@ -179,7 +179,7 @@ const Analytics = ({ setMessage }) => {
               onClick={() => {
                 navigate("/panel/categories");
               }}
-              className="cursor-pointer flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
+              className="cursor-pointer flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-surface-500"
             >
               <div className="p-3 mr-4 text-green-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-green-500">
                 <MdOutlineVideoSettings className="w-5 h-5" />
