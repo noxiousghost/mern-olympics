@@ -26,12 +26,12 @@ const Profile = ({ user }) => {
           <div className="w-full md:w-2/5 p-4 sm:p-6 lg:p-8 rounded-lg dark:bg-surface-500 dark:border-surface-400 shadow-md">
             <div className="flex justify-between  ">
               <span className="text-xl font-semibold block">User Profile</span>
-              <button className="-mt-2 text-md font-bold text-white bg-gray-700 rounded-full px-5 py-2 hover:bg-gray-800">
+              <button className="-mt-2 text-md font-bold text-white bg-yellow-400 rounded-full px-5 py-2 hover:bg-yellow-500">
                 Edit
               </button>
             </div>
 
-            <span className="text-gray-600">
+            <span className="text-gray-200">
               This information is secret so be careful
             </span>
             <div className="w-full p-8 mx-2 flex justify-center">
@@ -63,6 +63,23 @@ const Profile = ({ user }) => {
                   />
                 </div>
               </div>
+              <div className="pb-6">
+                <label
+                  htmlFor="country"
+                  className="font-semibold text-gray-700 block pb-1 dark:text-gray-300"
+                >
+                  Country
+                </label>
+                <div className="flex">
+                  <input
+                    disabled
+                    id="country"
+                    className="border-1  rounded-xl px-4 py-2 w-full  dark:bg-surface-500 dark:border-surface-400 "
+                    type="text"
+                    value={"United Kingdom"}
+                  />
+                </div>
+              </div>
               <div className="pb-4">
                 <label
                   htmlFor="about"
@@ -77,7 +94,7 @@ const Profile = ({ user }) => {
                   type="email"
                   value={user ? user.email : ""}
                 />
-                <span className="text-gray-600 pt-4 block opacity-70 dark:text-gray-300">
+                <span className="text-gray-600 pt-4 block opacity-70 dark:text-gray-100">
                   Personal login information of your account
                 </span>
               </div>
