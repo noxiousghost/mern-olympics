@@ -71,7 +71,7 @@ const Verify = ({ setMessage }) => {
                 </label>
               </div>
               <input
-                className="bg-gray-50 border mb-4 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="bg-gray-50 border mb-4 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-surface-500 dark:border-surface-400 dark:placeholder-gray-300 dark:text-white"
                 type="tel"
                 maxLength="6"
                 placeholder="Enter otp code"
@@ -82,9 +82,9 @@ const Verify = ({ setMessage }) => {
               />
               <button
                 onClick={verifyOTP}
-                className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="w-full text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-sm py-2.5 text-center dark:bg-primary-600 dark:hover:bg-yellow-400 dark:focus:ring-yellow-500"
               >
-                Verify Otp
+                Verify
               </button>
             </div>
             <div className="flex justify-center text-center mt-5"></div>
