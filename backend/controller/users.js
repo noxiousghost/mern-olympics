@@ -5,7 +5,6 @@ import mailSender from "../auth/mailSender.js";
 import Mail from "../models/mail.js";
 import { checkAdmin } from "../utils/middleware.js";
 
-
 const userRouter = express.Router();
 
 userRouter.get("/", checkAdmin, async (request, response) => {
@@ -21,7 +20,7 @@ userRouter.get("/:id", async (request, response) => {
     : response.status(404).json({ error: "user not found!" }).end();
 });
 userRouter.post("/", async (request, response) => {
-  const { username, email, password } = request.body;
+  const { username, email, password, country } = request.body;
 
   if (!((username || email) && password)) {
     return response.status(400).json({
@@ -41,7 +40,7 @@ userRouter.post("/", async (request, response) => {
   }
 
   const passwordHash = await Bcrypt.hash(password, 10);
-  const user = new User({ username, email, passwordHash });
+  const user = new User({ username, email, passwordHash, country });
   const savedUser = await user.save();
   if (!savedUser) {
     return response.status(400).json({
@@ -88,7 +87,7 @@ userRouter.patch("/:id", async (request, response) => {
     return response.status(401).json({ error: "Token missing or invalid!" });
   }
 
-  const { username, email, password } = request.body;
+  const { username, email, password, country } = request.body;
   let passwordHash = null;
   if (user.id === id || user.isAdmin) {
     password === undefined || password === ""
@@ -120,7 +119,7 @@ userRouter.patch("/:id", async (request, response) => {
   }
 });
 
-userRouter.patch("/fav/:id",async(request,response)=>{
+userRouter.patch("/fav/:id", async (request, response) => {
   const { id } = request.params;
   const user = request.user;
   const token = request.token;
@@ -129,8 +128,8 @@ userRouter.patch("/fav/:id",async(request,response)=>{
   }
 
   // const body = request.body;
-  const videoId = request.body.videoId.toString()
-  const prevFav = [...user.favourites]
+  const videoId = request.body.videoId.toString();
+  const prevFav = [...user.favourites];
   const exists = prevFav.some((fav) => String(fav) === String(videoId));
   if (exists) {
     const removedList = prevFav.filter(
@@ -150,8 +149,6 @@ userRouter.patch("/fav/:id",async(request,response)=>{
       .status(200)
       .json({ message: "Added to favourite list", data: favourites });
   }
-
-
-})
+});
 
 export default userRouter;
