@@ -18,6 +18,8 @@ loginRouter.post("/", async (request, response) => {
   const userForToken = {
     username: user.username,
     email: user.email,
+    country: user.country,
+    favoriteSport: user.favoriteSport,
     isAdmin: user.isAdmin,
     id: user._id,
   };
@@ -28,6 +30,8 @@ loginRouter.post("/", async (request, response) => {
   response.status(200).json({
     token: token,
     username: user.username,
+    country: user.country,
+    favoriteSport: user.favoriteSport,
     email: user.email,
     isAdmin: user.isAdmin,
     id: user._id,

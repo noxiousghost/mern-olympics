@@ -20,7 +20,7 @@ userRouter.get("/:id", async (request, response) => {
     : response.status(404).json({ error: "user not found!" }).end();
 });
 userRouter.post("/", async (request, response) => {
-  const { username, email, password, country } = request.body;
+  const { username, email, password, country, favoriteSport } = request.body;
 
   if (!((username || email) && password)) {
     return response.status(400).json({
@@ -40,7 +40,13 @@ userRouter.post("/", async (request, response) => {
   }
 
   const passwordHash = await Bcrypt.hash(password, 10);
-  const user = new User({ username, email, passwordHash, country });
+  const user = new User({
+    username,
+    email,
+    passwordHash,
+    country,
+    favoriteSport,
+  });
   const savedUser = await user.save();
   if (!savedUser) {
     return response.status(400).json({
@@ -87,7 +93,7 @@ userRouter.patch("/:id", async (request, response) => {
     return response.status(401).json({ error: "Token missing or invalid!" });
   }
 
-  const { username, email, password, country } = request.body;
+  const { username, email, password, country, favoriteSport } = request.body;
   let passwordHash = null;
   if (user.id === id || user.isAdmin) {
     password === undefined || password === ""
@@ -95,8 +101,8 @@ userRouter.patch("/:id", async (request, response) => {
       : (passwordHash = Bcrypt.hashSync(password, 10));
     const newData =
       passwordHash === null
-        ? { username, email }
-        : { username, email, passwordHash };
+        ? { username, email, country, favoriteSport }
+        : { username, email, passwordHash, country, favoriteSport };
     const findAndUpdate = await User.findByIdAndUpdate(id, newData, {
       runValidators: true,
     });
