@@ -6,6 +6,7 @@ import { BiLogOut } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 
 const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
+  const [showDropdown, setShowDropdown] = useState(false);
   const [showMenu, setShowMenu] = useState(true);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showLoginMenu, setShowLoginMenu] = useState(false);
@@ -28,6 +29,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
 
   return (
     <div
+      onClick={() => setShowDropdown(false)}
       className={`${showNavbar ? "block mb-14" : "hidden mb-0"}  left-0 dark`}
     >
       <nav className="bg-white px-2 sm:px-4 py-2.5 dark:bg-surface-600 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-primary-600">
@@ -237,6 +239,64 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
               </li>
               <li>
                 <Link
+                  to="/tablepoint"
+                  className={path === "/tablepoint" ? lightText : normalText}
+                >
+                  Medal Table
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/players"
+                  className={path === "/players" ? lightText : normalText}
+                >
+                  Players
+                </Link>
+              </li>
+
+              {/* <li>
+                <Link
+                  to="/fixtures"
+                  className={path === "/fixtures" ? lightText : normalText}
+                >
+                  Fixtures & Results
+                </Link>
+              </li> */}
+
+              <li
+                className="relative"
+                onMouseEnter={() => setShowDropdown(true)}
+                onClick={() => setShowDropdown(false)}
+              >
+                <div
+                  className={
+                    path.includes("/fixtures") ? lightText : normalText
+                  }
+                >
+                  Fixtures & Results
+                  {showDropdown && (
+                    <div className="absolute left-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl dark:bg-surface-500">
+                      <Link
+                        to="/fixtures/football"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-surface-400 dark:text-gray-200 dark:hover:text-white"
+                        onClick={() => setShowDropdown(false)}
+                      >
+                        Football
+                      </Link>
+                      <Link
+                        to="/fixtures/others"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-surface-400 dark:text-gray-200 dark:hover:text-white"
+                        onClick={() => setShowDropdown(false)}
+                      >
+                        Other Sports
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              </li>
+
+              <li>
+                <Link
                   to="/categories"
                   className={path === "/categories" ? lightText : normalText}
                 >
@@ -245,8 +305,8 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
               </li>
               <li>
                 <Link
-                  to="/live"
-                  className={path === "/live" ? lightText : normalText}
+                  to="/lives"
+                  className={path === "/lives" ? lightText : normalText}
                 >
                   Live
                 </Link>
