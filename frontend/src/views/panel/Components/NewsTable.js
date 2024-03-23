@@ -80,10 +80,10 @@ const NewsTable = ({ setMessage }) => {
       selector: (row) => row.title,
       sortable: true,
     },
-    {
-      name: "Description",
-      selector: (row) => row.description,
-    },
+    // {
+    //   name: "Description",
+    //   selector: (row) => row.description,
+    // },
     {
       name: "Image",
       cell: (row) => <img src={row.image} alt="" width={100} height={100} />,
