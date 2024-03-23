@@ -7,6 +7,10 @@ import { MdDeleteOutline, MdOutlineVideoSettings } from "react-icons/md";
 import { FaEdit, FaStar } from "react-icons/fa";
 import { IoLogInSharp } from "react-icons/io5";
 import { getOne } from "../../../../services/users";
+import countries from "i18n-iso-countries";
+import englishCountries from "i18n-iso-countries/langs/en.json";
+
+countries.registerLocale(englishCountries);
 
 const ViewUser = ({ setMessage }) => {
   const { id } = useParams();
@@ -54,6 +58,11 @@ const ViewUser = ({ setMessage }) => {
               </div>
               <div className="flex flex-row justify-center w-full mx-auto">
                 <span className=" text-gray-200 text-sm">{user.email}</span>
+              </div>
+              <div className="flex flex-row justify-center w-full mx-auto">
+                <span className=" text-gray-200 text-sm">
+                  {countries.getName(user.country, "en")}, {user.favoriteSport}
+                </span>
               </div>
               <div className="flex flex-row justify-center w-full mx-auto">
                 <span className=" text-gray-200 text-sm">

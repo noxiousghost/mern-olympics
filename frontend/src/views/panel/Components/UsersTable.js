@@ -5,6 +5,10 @@ import { MdDeleteOutline } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { getAll } from "../../../services/users";
 import { Checkbox } from "flowbite-react";
+import countries from "i18n-iso-countries";
+import englishCountries from "i18n-iso-countries/langs/en.json";
+
+countries.registerLocale(englishCountries);
 
 const UsersTable = ({ setMessage }) => {
   const [search, setSearch] = useState("");
@@ -90,6 +94,16 @@ const UsersTable = ({ setMessage }) => {
     {
       name: "Role",
       selector: (row) => (row.isAdmin ? "admin" : "user"),
+      sortable: true,
+    },
+    {
+      name: "Country",
+      selector: (row) => countries.getName(row.country, "en"),
+      sortable: true,
+    },
+    {
+      name: "Sport",
+      selector: (row) => row.favoriteSport,
       sortable: true,
     },
     {
