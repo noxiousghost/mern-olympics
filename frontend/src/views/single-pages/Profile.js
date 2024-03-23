@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import countries from "i18n-iso-countries";
+import englishCountries from "i18n-iso-countries/langs/en.json";
 
+countries.registerLocale(englishCountries);
 const Profile = ({ user }) => {
   const navigate = useNavigate();
 
@@ -17,6 +20,8 @@ const Profile = ({ user }) => {
       navigate("/login");
     }
   }, []);
+
+  console.log(user);
 
   return (
     <>
@@ -76,7 +81,28 @@ const Profile = ({ user }) => {
                     id="country"
                     className="border-1  rounded-xl px-4 py-2 w-full  dark:bg-surface-500 dark:border-surface-400 "
                     type="text"
-                    value={"United Kingdom"}
+                    value={
+                      user && user.country
+                        ? countries.getName(user.country, "en")
+                        : "No"
+                    }
+                  />
+                </div>
+              </div>
+              <div className="pb-6">
+                <label
+                  htmlFor="favoriteSport"
+                  className="font-semibold text-gray-700 block pb-1 dark:text-gray-300"
+                >
+                  Favorite Sport
+                </label>
+                <div className="flex">
+                  <input
+                    disabled
+                    id="favoriteSport"
+                    className="border-1  rounded-xl px-4 py-2 w-full  dark:bg-surface-500 dark:border-surface-400 "
+                    type="text"
+                    value={user ? user.favoriteSport : "sex"}
                   />
                 </div>
               </div>
