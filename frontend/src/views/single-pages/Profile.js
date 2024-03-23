@@ -84,7 +84,7 @@ const Profile = ({ user }) => {
                     value={
                       user && user.country
                         ? countries.getName(user.country, "en")
-                        : "No"
+                        : "Not Selected"
                     }
                   />
                 </div>
@@ -102,7 +102,7 @@ const Profile = ({ user }) => {
                     id="favoriteSport"
                     className="border-1  rounded-xl px-4 py-2 w-full  dark:bg-surface-500 dark:border-surface-400 "
                     type="text"
-                    value={user ? user.favoriteSport : "sex"}
+                    value={user ? user.favoriteSport : "Not Selected"}
                   />
                 </div>
               </div>
