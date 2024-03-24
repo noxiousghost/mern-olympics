@@ -62,14 +62,14 @@ const News = ({ setMessage }) => {
     details={{
       linkUrl: "/news/1",
       imgUrl: "/assets/news/news-2.webp",
-      title: `Key storylines from the 2022 Diamond League Final in Zurich`,
+      title: `Key storylines from the 2024 Diamond League Final in Zurich`,
     }}
   />
   <NewsCard
     details={{
       linkUrl: "/news/3",
       imgUrl: "/assets/news/news-3.webp",
-      title: `Canada Women’s Ice Hockey: Beijing2022 Medal Moments﻿`,
+      title: `Canada Women’s Ice Hockey: Beijing2024 Medal Moments﻿`,
     }}
   /> */}
           </div>
