@@ -31,13 +31,13 @@ const About = () => {
               events.
             </p>
             <p>
-              The Olympic Games, hosted in the beautiful city of Paris, are a
+              The Olympic Games, hosted in the beautiful city of Pyaris, are a
               testament to the enduring spirit of competition and camaraderie.
               Athletes from around the globe will converge here to showcase
               their talent and passion across a myriad of sports disciplines.
             </p>
             <p>
-              Paris, known for its rich history, cultural diversity, and iconic
+              Pyaris, known for its rich history, cultural diversity, and iconic
               landmarks, provides the perfect backdrop for this extraordinary
               event. From the historic Eiffel Tower to the majestic Louvre
               Museum, visitors will be captivated by the charm and grandeur of
@@ -52,14 +52,14 @@ const About = () => {
               </p>
             </blockquote>
             <p>
-              As the world comes together in Paris, spectators can expect
+              As the world comes together in Pyaris, spectators can expect
               thrilling moments, unforgettable performances, and a sense of
               unity that transcends borders. Whether you're a sports enthusiast
               or simply appreciate the spectacle of elite competition, the
-              Olympic Games in Paris promise to be an experience like no other.
+              Olympic Games in Pyaris promise to be an experience like no other.
             </p>
             <p>
-              At the heart of the Paris Olympic 2024 lies a commitment to
+              At the heart of the Pyaris Olympic 2024 lies a commitment to
               excellence—not only in athletic competition but also in every
               aspect of our operations. From state-of-the-art venues designed to
               showcase the pinnacle of human performance to a meticulously
@@ -71,7 +71,7 @@ const About = () => {
             <p>
               For more information about Pyaris Olympic and the games it
               includes,{" "}
-              <a href="https://www.paris2024.org/en/">go to this page</a>.
+              <a href="https://www.Pyaris2024.org/en/">go to this page</a>.
             </p>
             <hr />
             <h2>What are our Missions</h2>
