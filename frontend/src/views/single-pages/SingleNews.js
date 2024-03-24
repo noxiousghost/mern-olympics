@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Loading from "../../Components/Loading";
 import NewsCard from "../../Components/NewsCard";
 import NotExists from "../../Components/NotExists";
+import moment from "moment";
 import { getAll, getOne } from "../../services/news";
 const SingleNews = ({ setMessage }) => {
   const [news, setNews] = useState({});
@@ -28,7 +29,6 @@ const SingleNews = ({ setMessage }) => {
     };
     fetchData(id);
   }, [id]);
-
   return (
     <div>
       {isLoading ? (
@@ -44,22 +44,28 @@ const SingleNews = ({ setMessage }) => {
 
           {/* Image */}
           <img
-            className="w-full max-w-xl h-auto rounded-lg mx-auto"
+            className="max-w-xl w-2/3 h-auto rounded-lg mx-auto"
             src={news.image}
             alt=" description"
           />
           {/* Description */}
-          <p className="md:text-xl text-justify">
-            {news.description}
-            <br />
-            {/* Upload date */}
-            <span className="text-base">
-              Uploaded date:
-              <span className="m-2 p-0.5 rounded-md text-wheatt hover:underline hover:bg-gray-500">
-                {news.addedDate}
+          <div
+            className=" mx-auto font-poppins whitespace-pre-line"
+            style={{ maxWidth: "46rem" }}
+          >
+            <p className="md:text-xl text-left">
+              {news.description}
+              <br />
+              {/* Upload date */}
+              <span className="text-base">
+                Uploaded date:
+                <span className="m-2 p-0.5 rounded-md text-primary-600 hover:underline hover:bg-gray-500">
+                  {/* {news.addedDate} */}
+                  {moment(news.addedDate).format("YYYY-MM-DD")}
+                </span>
               </span>
-            </span>
-          </p>
+            </p>
+          </div>
         </div>
       )}
 
