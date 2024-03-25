@@ -6,6 +6,13 @@ import { getAll } from "../services/news";
 import { getAllCategories } from "../services/category";
 import Loading from "../Components/Loading";
 import NotExists from "../Components/NotExists";
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+// import required modules
+import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
 
 const Home = ({ setMessage }) => {
   const [news, setNews] = useState([]);
@@ -32,18 +39,23 @@ const Home = ({ setMessage }) => {
     fetchData();
   }, []);
 
-
   return (
     <div className="w-full flex flex-col ">
-      <div className=" flex flex-col lg:flex-row justify-center ">
-        <div className="my-4">
+      <div
+        className=" flex flex-col lg:flex-row justify-center h-screen"
+        style={{
+          backgroundImage: `url("/assets/hero.jpg")`,
+          backgroundSize: "cover",
+        }}
+      >
+        {/* <div className="my-4">
           <img
             className="min-w-sm md:max-w-md rounded-lg transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0"
             src="/assets/random-images/home-img.jpg"
             alt="img"
           />
-        </div>
-        <div className="my-4 p-4 space-x-2 ">
+        </div> */}
+        <div className="my-auto p-4 space-x-2">
           <h1 className="mb-4 text-2xl font-bold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
             Personalise your
             <span className="text-blue-600 dark:text-blue-500">Olympic</span>
@@ -55,10 +67,51 @@ const Home = ({ setMessage }) => {
           <br />
           <Link
             to="/live"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="absolute left-1/2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Watch live
           </Link>
+        </div>
+      </div>
+      <div className="mt-6">
+        <span className="text-wheatt font-bold md:text-2xl lg:text-3xl">
+          Gallery
+        </span>
+        <hr className=" mt-4 h-1" />
+        <div className=" flex flex-col lg:flex-row justify-center">
+          <Swiper
+            spaceBetween={50}
+            loop={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={"auto"}
+            effect={"coverflow"}
+            coverflowEffect={{
+              rotate: 50,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: true,
+            }}
+            modules={[Autoplay, EffectCoverflow, Pagination]}
+          >
+            <SwiperSlide>
+              <img src="/assets/slider-images/image1.jpg" alt="Slide 1" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="/assets/slider-images/image2.jpg" alt="Slide 2" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="/assets/slider-images/image3.jpg" alt="Slide 3" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="/assets/slider-images/image4.jpg" alt="Slide 4" />
+            </SwiperSlide>
+          </Swiper>
         </div>
       </div>
       {/* Categories */}
