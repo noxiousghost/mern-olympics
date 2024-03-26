@@ -6,7 +6,7 @@ function Fixtures() {
         <div className="-mb-8 w-full flex-col justify-center space-y-5">
           <div className="flex flex-row w-full justify-center">
             <span className="text-wheatt text-xl font-bold md:text-2xl lg:text-3xl">
-              Fixtures
+              Upcoming Fixtures
             </span>
           </div>
           <div className="flex flex-row w-full justify-center">

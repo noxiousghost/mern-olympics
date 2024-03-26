@@ -64,14 +64,14 @@ const Change_pw = ({ setMessage }) => {
                 autoComplete="off"
               >
                 <h5 className="text-xl font-medium text-gray-900 dark:text-white">
-                  Enter your new password
+                  Reset your password
                 </h5>
                 <div>
                   <label
                     htmlFor="email"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
-                    Your email
+                    Your Email Address
                   </label>
                   <TextField
                     type="email"
@@ -109,19 +109,19 @@ const Change_pw = ({ setMessage }) => {
 
                 <button
                   type="submit"
-                  className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-yellow-400 dark:focus:ring-yellow-500"
                 >
                   Change password
                 </button>
-                <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
+                {/* <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
                   Remember password?
                   <Link
                     to="/login"
-                    className="text-blue-700 hover:underline dark:text-blue-500"
+                    className="text-yellow-300 hover:underline dark:text-yellow-300"
                   >
                     Login
                   </Link>
-                </div>
+                </div> */}
               </form>
             );
           }}

@@ -12,13 +12,13 @@ ChangePasswordRouter.post("/send_mail", async (request, response) => {
   const findUser = await User.findOne({ email: email });
   if (!findUser) {
     return response.status(400).json({
-      error: "User doesnot exists!",
+      error: "User doesn't exists!",
     });
   }
   const sendMail = mailSender.SendEmail(email);
   if (!sendMail) {
     return response.status(400).json({
-      error: "Failed to send mail!",
+      error: "Failed to send OTP!",
     });
   }
   response.status(201).json({ message: "Change passsword OTP Sent" });
@@ -35,7 +35,7 @@ ChangePasswordRouter.post("/verify_otp", async (request, response) => {
       response.status(200).json(verifiedUser);
     } else {
       return response.status(400).json({
-        error: "Code not matched!",
+        error: "Invalid OTP",
       });
     }
   } else {

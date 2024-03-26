@@ -201,7 +201,7 @@ const Signup = ({ setMessage }) => {
               if (response) {
                 resetForm({});
                 setMessage({
-                  message: `Welcome ${response.username}. Please verify your email and continue!`,
+                  message: `Welcome ${response.username}. Please verify your account`,
                   className: "success",
                 });
                 window.localStorage.setItem(
@@ -233,7 +233,7 @@ const Signup = ({ setMessage }) => {
               autoComplete="off"
             >
               <h5 className="text-xl font-medium text-gray-900 dark:text-white">
-                Sign up to Fun Olympics 2024
+                Create an account
               </h5>
               <div>
                 <label
@@ -317,7 +317,7 @@ const Signup = ({ setMessage }) => {
                   htmlFor="email"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
-                  Your Email
+                  Email Address
                 </label>
                 <TextField
                   type="email"
@@ -330,7 +330,7 @@ const Signup = ({ setMessage }) => {
                   htmlFor="password"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
-                  Your Password
+                  Password
                 </label>
                 <TextField
                   type="password"
@@ -358,7 +358,7 @@ const Signup = ({ setMessage }) => {
                 type="submit"
                 className="w-full text-white bg-primary-600 hover:bg-primary-600 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-semibold rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-yellow-400 dark:focus:ring-yellow-500"
               >
-                Sign up
+                Register
               </button>
               <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
                 Already have an account?

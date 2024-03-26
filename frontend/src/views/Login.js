@@ -46,14 +46,14 @@ const Login = ({ setUser, setMessage }) => {
                 autoComplete="off"
               >
                 <h5 className="text-xl font-medium text-gray-900 dark:text-white">
-                  Sign in to our platform
+                  Login to your account
                 </h5>
                 <div>
                   <label
                     htmlFor="email"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
-                    Your email
+                    Email Address
                   </label>
                   <TextField
                     type="email"
@@ -66,7 +66,7 @@ const Login = ({ setUser, setMessage }) => {
                     htmlFor="password"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
-                    Your password
+                    Password
                   </label>
                   <TextField
                     type="password"
@@ -96,22 +96,22 @@ const Login = ({ setUser, setMessage }) => {
                     to="/forget"
                     className="ml-auto text-sm text-primary-600 hover:underline dark:text-primary-500"
                   >
-                    Forget Password?
+                    I forgot my password
                   </Link>
                 </div>
                 <button
                   type="submit"
                   className="w-full text-white bg-primary-600 hover:bg-primary-600 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-semibold rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-yellow-400 dark:focus:ring-yellow-500"
                 >
-                  Login to your account
+                  Login
                 </button>
                 <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-                  Don't have an account?
+                  New here?
                   <Link
                     to="/signup"
                     className="text-primary-600 hover:underline dark:text-primary-500"
                   >
-                    &nbsp;Signup
+                    &nbsp;Create an account
                   </Link>
                 </div>
               </form>

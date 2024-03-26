@@ -24,7 +24,7 @@ userRouter.post("/", async (request, response) => {
 
   if (!((username || email) && password)) {
     return response.status(400).json({
-      error: "username , email and password are required!",
+      error: "Full name , email and password are required!",
     });
   }
   if (username.length < 3 || password.length < 3) {
@@ -35,7 +35,7 @@ userRouter.post("/", async (request, response) => {
   const existingUser = await User.findOne({ email });
   if (existingUser) {
     return response.status(400).json({
-      error: "email must be unique!",
+      error: "Email already registered",
     });
   }
 
@@ -56,7 +56,7 @@ userRouter.post("/", async (request, response) => {
   const sendMail = mailSender.SendEmail(email);
   if (!sendMail) {
     return response.status(400).json({
-      error: "failed to send mail!",
+      error: "Failed to send OPT!",
     });
   }
 
@@ -75,12 +75,12 @@ userRouter.post("/verify", async (request, response) => {
       response.status(200).json(verifiedUser);
     } else {
       return response.status(400).json({
-        error: "code not matched!",
+        error: "Invalid OTP",
       });
     }
   } else {
     return response.status(400).json({
-      error: "email not found!",
+      error: "Email not registered!",
     });
   }
 });

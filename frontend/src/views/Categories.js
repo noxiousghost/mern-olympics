@@ -28,7 +28,7 @@ const Categories = ({ setMessage }) => {
       <div className="w-full flex flex-col">
         <div className="mb-8 w-full flex justify-center">
           <span className="text-wheatt font-bold md:text-2xl lg:text-3xl">
-            Categories
+            Watch Videos
           </span>
         </div>
 

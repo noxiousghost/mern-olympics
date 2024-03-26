@@ -165,7 +165,7 @@ const CategoryTable = ({ setMessage }) => {
       subHeaderComponent={
         <input
           type="text"
-          className="block p-2 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-pink-500 focus:border-pink-500 dark:bg-surface-400 dark:border-surface-300 dark:placeholder-gray-300 dark:text-white dark:focus:ring-pink-500 dark:focus:border-pink-500"
+          className="block p-2 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-pink-500 focus:border-pink-500 dark:bg-surface-400 dark:border-surface-300 dark:placeholder-gray-400 dark:text-white dark:focus:ring-pink-500 dark:focus:border-pink-500"
           placeholder="Search Sports"
           value={search}
           onChange={(e) => setSearch(e.target.value)}

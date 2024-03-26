@@ -300,7 +300,7 @@ const Navbar = ({ user, setUser, setMessage, handleSearchKey }) => {
                   to="/categories"
                   className={path === "/categories" ? lightText : normalText}
                 >
-                  Categories
+                  Videos
                 </Link>
               </li>
               <li>

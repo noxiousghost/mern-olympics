@@ -39,7 +39,7 @@ const Verify = ({ setMessage }) => {
           window.localStorage.removeItem("signupEmail");
           navigate("/login");
           setMessage({
-            message: "Email verified..",
+            message: "Account Verified",
             className: "success",
           });
         }
@@ -58,7 +58,7 @@ const Verify = ({ setMessage }) => {
         <div className="p-4 w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-surface-500 dark:border-surface-400">
           <div className="bg-white dark:bg-surface-500 dark:border-surface-400 min-h-80 rounded-lg text-center">
             <h1 className="text-xl font-medium text-gray-900 dark:text-white mb-4">
-              OTP Verification
+              Account Verification
             </h1>
 
             <div className=" w-full items-center flex flex-col h-auto dark:text-blackk">
@@ -67,14 +67,14 @@ const Verify = ({ setMessage }) => {
                   htmlFor="email"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
-                  Enter otp
+                  Enter verification code sent to your Email
                 </label>
               </div>
               <input
-                className="bg-gray-50 border mb-4 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-surface-500 dark:border-surface-400 dark:placeholder-gray-300 dark:text-white"
+                className="bg-gray-50 border mb-4 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-surface-500 dark:border-surface-400 dark:placeholder-gray-400 dark:text-white"
                 type="tel"
                 maxLength="6"
-                placeholder="Enter otp code"
+                placeholder="123456"
                 onChange={(e) => {
                   e.preventDefault();
                   setCode(e.target.value);
