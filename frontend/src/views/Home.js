@@ -11,6 +11,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import "./swiper.css";
 // import required modules
 import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
 
@@ -42,8 +43,9 @@ const Home = ({ setMessage }) => {
   return (
     <div className="w-full flex flex-col ">
       <div
-        className=" flex flex-col lg:flex-row justify-center h-screen"
+        className="flex flex-col lg:flex-row justify-center -mx-10 -mt-10"
         style={{
+          height: "93   vh",
           backgroundImage: `url("/assets/hero.jpg")`,
           backgroundSize: "cover",
         }}
@@ -55,41 +57,42 @@ const Home = ({ setMessage }) => {
             alt="img"
           />
         </div> */}
-        <div className="my-auto p-4 space-x-2">
+        <div className="m-auto p-4 space-x-2">
           <h1 className="mb-4 text-2xl font-bold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
             Personalise your
             <span className="text-blue-600 dark:text-blue-500">Olympic</span>
             experience
           </h1>
-          <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+          <p className="text-lg font-normal text-center text-gray-500 lg:text-xl dark:text-gray-400">
             Watch original Olympic content and documentaries for free.
           </p>
           <br />
           <Link
             to="/live"
-            className="absolute left-1/2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            style={{ left: "44.5%" }}
+            className="absolute text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Watch live
           </Link>
         </div>
       </div>
-      <div className="mt-6">
+      <div className="mt-6 ">
         <span className="text-wheatt font-bold md:text-2xl lg:text-3xl">
           Gallery
         </span>
         <hr className=" mt-4 h-1" />
-        <div className=" flex flex-col lg:flex-row justify-center">
+        <div className="">
           <Swiper
-            spaceBetween={50}
-            loop={true}
             autoplay={{
               delay: 5000,
               disableOnInteraction: false,
             }}
             grabCursor={true}
+            loop={true}
             centeredSlides={true}
             slidesPerView={"auto"}
             effect={"coverflow"}
+            pagination={true}
             coverflowEffect={{
               rotate: 50,
               stretch: 0,
@@ -110,6 +113,18 @@ const Home = ({ setMessage }) => {
             </SwiperSlide>
             <SwiperSlide>
               <img src="/assets/slider-images/image4.jpg" alt="Slide 4" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="/assets/slider-images/image5.jpg" alt="Slide 5" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="/assets/slider-images/image6.jpg" alt="Slide 6" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="/assets/slider-images/image7.jpg" alt="Slide 7" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="/assets/slider-images/image8.jpeg" alt="Slide 8" />
             </SwiperSlide>
           </Swiper>
         </div>

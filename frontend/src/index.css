@@ -43,3 +43,6 @@ code {
     /* Player ratio: 100 / (1280 / 720) */
   }
 }
+.some-class {
+  all: revert; /* locally remove tailwind styles */
+}
