@@ -12,7 +12,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "./swiper.css";
-// import required modules
+// import requiorange modules
 import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
 
 const Home = ({ setMessage }) => {
@@ -45,7 +45,7 @@ const Home = ({ setMessage }) => {
       <div
         className="flex flex-col lg:flex-row justify-center -mx-10 -mt-10"
         style={{
-          height: "93   vh",
+          height: "93vh",
           backgroundImage: `url("/assets/hero.jpg")`,
           backgroundSize: "cover",
         }}
@@ -59,20 +59,23 @@ const Home = ({ setMessage }) => {
         </div> */}
         <div className="m-auto p-4 space-x-2">
           <h1 className="mb-4 text-2xl font-bold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-            Personalise your
-            <span className="text-blue-600 dark:text-blue-500">Olympic</span>
-            experience
+            Explore the Heartbeat of
+            <span className="text-orange-600 dark:text-primary-400">
+              {" "}
+              Pyaris{" "}
+            </span>
+            Olympics
           </h1>
-          <p className="text-lg font-normal text-center text-gray-500 lg:text-xl dark:text-gray-400">
-            Watch original Olympic content and documentaries for free.
+          <p className="text-lg font-normal text-center text-gray-500 lg:text-xl dark:text-gray-200">
+            Embrace Unity, Diversity, and Sporting Excellence in Every Moment
           </p>
           <br />
           <Link
-            to="/live"
+            to="#"
             style={{ left: "44.5%" }}
-            className="absolute text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="absolute text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
           >
-            Watch live
+            Explore
           </Link>
         </div>
       </div>
@@ -81,7 +84,7 @@ const Home = ({ setMessage }) => {
           Gallery
         </span>
         <hr className=" mt-4 h-1" />
-        <div className="">
+        <div className="mySwiper">
           <Swiper
             autoplay={{
               delay: 5000,
@@ -89,7 +92,7 @@ const Home = ({ setMessage }) => {
             }}
             grabCursor={true}
             loop={true}
-            centeredSlides={true}
+            centeorangeSlides={true}
             slidesPerView={"auto"}
             effect={"coverflow"}
             pagination={true}
@@ -98,7 +101,7 @@ const Home = ({ setMessage }) => {
               stretch: 0,
               depth: 100,
               modifier: 1,
-              slideShadows: true,
+              slideShadows: false,
             }}
             modules={[Autoplay, EffectCoverflow, Pagination]}
           >
@@ -129,10 +132,10 @@ const Home = ({ setMessage }) => {
           </Swiper>
         </div>
       </div>
-      {/* Categories */}
+      {/* Videos */}
       <div className="mt-6">
         <span className="text-wheatt font-bold md:text-2xl lg:text-3xl">
-          Categories
+          Videos
         </span>
         <hr className=" mt-4 h-1" />
 
