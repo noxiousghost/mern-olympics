@@ -145,7 +145,10 @@ const VideoPlayer = ({ user, setMessage }) => {
               <div className="p-5 flex flex-col">
                 <span> Uploaded by {video.uploader.username}</span>
                 <span className="text-wheatt text-lg mt-5">Description</span>
-                <span> {video.description}</span>
+                <span className="whitespace-pre-line">
+                  {" "}
+                  {video.description}
+                </span>
               </div>
               <span>Played:{played} </span>
             </div>
