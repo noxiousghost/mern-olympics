@@ -80,10 +80,10 @@ const CategoryTable = ({ setMessage }) => {
       selector: (row) => row.title,
       sortable: true,
     },
-    {
-      name: "Description",
-      selector: (row) => row.description,
-    },
+    // {
+    //   name: "Description",
+    //   selector: (row) => row.description,
+    // },
     {
       name: "Image",
       cell: (row) => <img src={row.image} alt="" width={100} height={100} />,
@@ -149,7 +149,7 @@ const CategoryTable = ({ setMessage }) => {
       data={filtered}
       pagination
       fixedHeader
-      fixedHeaderScrollHeight="450px"
+      fixedHeaderScrollHeight="580px"
       selectableRows
       selectableRowsHighlight
       highlightOnHover

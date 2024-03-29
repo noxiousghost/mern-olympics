@@ -148,7 +148,7 @@ const UsersTable = ({ setMessage }) => {
       data={filtered}
       pagination
       fixedHeader
-      fixedHeaderScrollHeight="450px"
+      fixedHeaderScrollHeight="580px"
       selectableRows
       selectableRowsHighlight
       highlightOnHover

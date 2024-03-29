@@ -81,10 +81,10 @@ const VideoTable = ({ setMessage }) => {
       selector: (row) => row.title,
       sortable: true,
     },
-    {
-      name: "Description",
-      selector: (row) => row.description,
-    },
+    // {
+    //   name: "Description",
+    //   selector: (row) => row.description,
+    // },
     {
       name: "Category",
       selector: (row) => row.category.title,
@@ -176,7 +176,7 @@ const VideoTable = ({ setMessage }) => {
       data={filtered}
       pagination
       fixedHeader
-      fixedHeaderScrollHeight="450px"
+      fixedHeaderScrollHeight="580px"
       selectableRows
       selectableRowsHighlight
       highlightOnHover

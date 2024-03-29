@@ -61,7 +61,7 @@ const AddCategory = ({ setMessage }) => {
               >
                 <div className="flex justify-between items-start p-4 rounded-t border-b dark:border-surface-400">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                    Add category
+                    Add Category
                   </h3>
                   <div
                     className="text-gray-400 cursor-pointer bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-surface-400 dark:hover:text-white"
