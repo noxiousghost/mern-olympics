@@ -57,7 +57,9 @@ const ViewUser = ({ setMessage }) => {
                 </span>
               </div>
               <div className="flex flex-row justify-center w-full mx-auto">
-                <span className=" text-gray-200 text-sm">{user.email}</span>
+                <span className=" text-gray-200 text-sm">
+                  {user.email}, {user.phone}
+                </span>
               </div>
               <div className="flex flex-row justify-center w-full mx-auto">
                 <span className=" text-gray-200 text-sm">

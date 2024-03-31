@@ -92,6 +92,10 @@ const UsersTable = ({ setMessage }) => {
       selector: (row) => row.email,
     },
     {
+      name: "Phone",
+      selector: (row) => row.phone,
+    },
+    {
       name: "Role",
       selector: (row) => (row.isAdmin ? "admin" : "user"),
       sortable: true,
