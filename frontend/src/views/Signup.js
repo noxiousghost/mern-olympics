@@ -327,6 +327,19 @@ const Signup = ({ setMessage }) => {
               </div>
               <div>
                 <label
+                  htmlFor="phone"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                >
+                  Phone Number
+                </label>
+                <TextField
+                  type="text"
+                  name="phone"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+              <div>
+                <label
                   htmlFor="password"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
