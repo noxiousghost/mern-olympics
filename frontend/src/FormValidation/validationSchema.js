@@ -5,9 +5,17 @@ const signupValidationSchema = object({
     .min(3, "Your username should be at least 3 letters!")
     .max(20, "Username should contain less than 20 characters!")
     .required("Username is required!"),
+  country: string().required("Country is required!"),
+  favoriteSport: string().required("Favorite Sport is required!"),
   email: string()
     .required("Email is required!")
     .email("Your email must be valid email!"),
+  phone: string()
+    .matches(
+      /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,7}$/,
+      "Please enter a valid phone number"
+    )
+    .required("Phone number is required!"),
   password: string()
     .matches(
       /^.*(?=.{7,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
