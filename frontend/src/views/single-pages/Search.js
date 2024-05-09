@@ -102,6 +102,34 @@ const Search = ({ searchText, setMessage }) => {
           )}
         </div>
 
+        {/* News */}
+        <div className="mt-6">
+          <span className="text-wheatt font-bold md:text-2xl lg:text-3xl">
+            News
+          </span>
+          <hr className=" mt-4 h-1" />
+
+          {isLoading.news ? (
+            <Loading />
+          ) : filteredNews.length > 0 ? (
+            <div className="grid grid-cols-1 grid-flow-row gap-4 md:grid-cols-3 mt-8">
+              {filteredNews.map((singleNews, index) => {
+                return (
+                  <NewsCard
+                    key={singleNews.id}
+                    details={{
+                      linkUrl: `/news/${singleNews.id}`,
+                      imgUrl: singleNews.image,
+                      title: singleNews.title,
+                    }}
+                  />
+                );
+              })}
+            </div>
+          ) : (
+            <NotExists name="news" />
+          )}
+        </div>
         <div className="mt-6">
           <span className="text-wheatt font-bold md:text-2xl lg:text-3xl">
             Categories
@@ -129,34 +157,6 @@ const Search = ({ searchText, setMessage }) => {
             </div>
           ) : (
             <NotExists name="categories" />
-          )}
-        </div>
-        {/* News */}
-        <div className="mt-6">
-          <span className="text-wheatt font-bold md:text-2xl lg:text-3xl">
-            News
-          </span>
-          <hr className=" mt-4 h-1" />
-
-          {isLoading.news ? (
-            <Loading />
-          ) : filteredNews.length > 0 ? (
-            <div className="grid grid-cols-1 grid-flow-row gap-4 md:grid-cols-3 mt-8">
-              {filteredNews.map((singleNews, index) => {
-                return (
-                  <NewsCard
-                    key={singleNews.id}
-                    details={{
-                      linkUrl: `/news/${singleNews.id}`,
-                      imgUrl: singleNews.image,
-                      title: singleNews.title,
-                    }}
-                  />
-                );
-              })}
-            </div>
-          ) : (
-            <NotExists name="news" />
           )}
         </div>
       </div>

@@ -117,7 +117,7 @@ const Profile = ({ user }) => {
                     id="phone"
                     className="border-1  rounded-xl px-4 py-2 w-full  dark:bg-surface-500 dark:border-surface-400 "
                     type="text"
-                    value={user ? user.phone : "9876543210"}
+                    value={user ? user.phone : "Error getting phone number"}
                   />
                 </div>
               </div>

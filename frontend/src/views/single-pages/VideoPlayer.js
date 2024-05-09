@@ -156,7 +156,7 @@ const VideoPlayer = ({ user, setMessage }) => {
               <hr />
               <div className="pb-2.5 flex flex-col">
                 <span className="text-wheatt text-lg my-2">Description</span>
-                <span className="leading-3 whitespace-pre-line">
+                <span className="whitespace-pre-line">
                   {" "}
                   {video.description}
                 </span>
