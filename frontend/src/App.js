@@ -35,8 +35,6 @@ import EditVideo from "./views/panel/Pages/edit/EditVideo";
 import Favourites from "./views/single-pages/Favourites";
 import About from "./views/About";
 import TablePoint from "./views/TablePoint";
-import Lives from "./views/Lives";
-import Players from "./views/Players";
 import Fixtures from "./views/Fixtures";
 import Email from "./views/changePassword/Email";
 import Otp from "./views/changePassword/Otp";
@@ -176,10 +174,8 @@ function App() {
               />
             </Route>
             <Route path="about" element={<About />} />
-            <Route path="lives" element={<Lives />} />
             <Route path="tablepoint" element={<TablePoint />} />
-            <Route path="players" element={<Players />} />
-            <Route path="fixtures/football" element={<Fixtures />} />
+            <Route path="fixtures" element={<Fixtures />} />
             <Route path="forget" element={<Email setMessage={setMessage} />} />
             <Route path="enter_otp" element={<Otp setMessage={setMessage} />} />
             <Route
