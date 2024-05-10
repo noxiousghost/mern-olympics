@@ -10,14 +10,7 @@ function TablePoint() {
               Medal Table
             </span>
           </div>
-          <div className="flex flex-row w-full justify-center">
-            <iframe
-              width="100%"
-              height="950"
-              src="http://127.0.0.1:5500/frontend/src/htmlpage/table-point.html"
-              title="players"
-            ></iframe>
-          </div>
+          <div className="flex flex-row w-full justify-center">Medal Table</div>
         </div>
       </div>
     </div>
