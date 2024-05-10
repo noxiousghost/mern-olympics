@@ -1,0 +1,11 @@
+# Ignore all files in the category folder
+category/*
+# Ignore all files in the news folder
+news/*
+# Ignore all files in the videos folder
+video/*
+
+# Except for empty directories
+category/.*
+news/.*
+video/.*
