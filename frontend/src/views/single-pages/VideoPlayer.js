@@ -14,7 +14,6 @@ import { addToFav, getOne as getOneUser } from "../../services/users";
 
 const VideoPlayer = ({ user, setMessage }) => {
   const [video, setVideo] = useState({});
-  const [comment, setComment] = useState({});
   const [played, setPlayed] = useState(0);
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -147,7 +146,7 @@ const VideoPlayer = ({ user, setMessage }) => {
             </div>
           </>
         )}
-        <Comments post={comment} />
+        <Comments videoId={id} />
         <div className="my-6">
           <span className="text-wheatt font-bold md:text-2xl lg:text-3xl">
             Related Videos
