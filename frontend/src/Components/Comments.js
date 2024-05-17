@@ -1,20 +1,41 @@
 import React, { useEffect, useState } from "react";
-import { FaThumbsUp, FaThumbsDown, FaReply } from "react-icons/fa";
+import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
+import Moment from "react-moment";
+import { createComment, getOne } from "../services/video";
 
-function Comments({ post }) {
+function Comments({ videoId }) {
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleCommentSubmit = () => {
+  const handleCommentSubmit = async () => {
     if (comment.trim() !== "") {
-      setComments([...comments, comment]);
-      setComment("");
-      setErrorMessage("");
+      try {
+        const newComment = await createComment(videoId, { text: comment });
+        setComments([...comments, newComment]);
+        setComment("");
+        setErrorMessage("");
+      } catch (error) {
+        setErrorMessage(error.message || "Failed to post comment");
+      }
     } else {
       setErrorMessage("Please enter a comment before submitting.");
     }
   };
+
+  const fetchComments = async () => {
+    try {
+      const video = await getOne(videoId);
+      setComments(video.comments);
+    } catch (error) {
+      console.error("Failed to fetch video details");
+    }
+  };
+
+  useEffect(() => {
+    fetchComments();
+  }, [videoId]);
+
   return (
     <div className="my-3">
       <span className="text-wheatt font-bold md:text-xl lg:text-2xl">
@@ -42,8 +63,7 @@ function Comments({ post }) {
           </button>
         </div>
       </div>
-      {/* Display Comments */}
-      {/* Display each comment */}
+
       {comments.map((comment, index) => (
         <div key={index} className="px-6 py-3 my-2">
           <p>
@@ -52,7 +72,10 @@ function Comments({ post }) {
               alt="icon"
               src="/assets/profile-img/profile-1.png"
             />
-            {comment}
+            {comment.postedBy && comment.postedBy.username}: {comment.text}
+          </p>
+          <p>
+            <Moment fromNow>{comment.postedAt}</Moment>
           </p>
           <div className="mt-2 gap-x-3 flex items-center">
             <button className="mr-2">
