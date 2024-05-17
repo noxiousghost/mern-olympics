@@ -120,7 +120,9 @@ videoRouter.delete("/:id", checkAdmin, async (request, response) => {
   const foundCategory = await Category.findById(exists.category);
   const catVideos = foundCategory.videos;
 
-  const filtered = catVideos.filter((video) => video.toString() !== request.params.id.toString());
+  const filtered = catVideos.filter(
+    (video) => video.toString() !== request.params.id.toString()
+  );
   foundCategory.videos = filtered;
   await foundCategory.save();
 
@@ -134,4 +136,67 @@ videoRouter.delete("/:id", checkAdmin, async (request, response) => {
   }
 });
 
+videoRouter.post("/:id/comments", async (request, response) => {
+  const { text } = request.body;
+  const videoId = request.params.id;
+  const userId = request.user._id;
+
+  if (!text) {
+    return response.status(400).json({ error: "Comment text is required" });
+  }
+
+  try {
+    const video = await Video.findById(videoId);
+    if (!video) {
+      return response.status(404).json({ error: "Video not found" });
+    }
+
+    const comment = {
+      text,
+      postedBy: userId,
+    };
+
+    video.comments.push(comment);
+    await video.save();
+
+    // Populate the postedBy field for the new comment
+    const populatedVideo = await Video.findById(videoId).populate({
+      path: "comments.postedBy",
+      select: "username",
+    });
+
+    const newComment =
+      populatedVideo.comments[populatedVideo.comments.length - 1];
+
+    response.status(201).json(newComment);
+  } catch (error) {
+    console.error(error);
+    response
+      .status(500)
+      .json({ error: "An error occurred while posting the comment" });
+  }
+});
+
+videoRouter.get("/:id", async (request, response) => {
+  try {
+    const video = await Video.findById(request.params.id)
+      .populate("uploader", { username: 1, email: 1 })
+      .populate("category", { title: 1 })
+      .populate({
+        path: "comments.postedBy",
+        select: "username",
+      });
+
+    if (!video) {
+      return response.status(404).json({ error: "Video not found" });
+    }
+
+    response.status(200).json(video);
+  } catch (error) {
+    console.error(error);
+    response
+      .status(500)
+      .json({ error: "An error occurred while fetching the video" });
+  }
+});
 export default videoRouter;

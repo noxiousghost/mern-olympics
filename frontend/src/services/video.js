@@ -8,7 +8,8 @@ const getAll = async () => {
   const response = await axios.get(baseUrl);
   return response.data;
 };
-const getOne = async (id) => {
+
+const getOne = async (videoId) => {
   const u = window.localStorage.getItem("loggedInOlympicsUser");
   const user = JSON.parse(u);
   if (user) {
@@ -17,7 +18,7 @@ const getOne = async (id) => {
   const config = {
     headers: { Authorization: token },
   };
-  const response = await axios.get(`${baseUrl}/${id}`, config);
+  const response = await axios.get(`${baseUrl}/${videoId}`, config);
   return response.data;
 };
 const create = async (newObject) => {
@@ -62,4 +63,24 @@ const deleteVideo = async (id) => {
   return response.data;
 };
 
-export { create, getAll, getOne, update, deleteVideo };
+const createComment = async (videoId, commentData) => {
+  const u = window.localStorage.getItem("loggedInOlympicsUser");
+  const user = JSON.parse(u);
+  if (user) {
+    token = `bearer ${user.token}`;
+  }
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+  };
+  const response = await axios.post(
+    `${baseUrl}/${videoId}/comments`,
+    commentData,
+    config
+  );
+  return response.data;
+};
+
+export { create, getAll, getOne, update, deleteVideo, createComment };
