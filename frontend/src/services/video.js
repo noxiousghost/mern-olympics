@@ -1,8 +1,15 @@
 import axios from "axios";
 
 const baseUrl = "/api/video";
-
 let token;
+
+const setToken = () => {
+  const u = window.localStorage.getItem("loggedInOlympicsUser");
+  const user = JSON.parse(u);
+  if (user) {
+    token = `bearer ${user.token}`;
+  }
+};
 
 const getAll = async () => {
   const response = await axios.get(baseUrl);
@@ -10,70 +17,39 @@ const getAll = async () => {
 };
 
 const getOne = async (videoId) => {
-  const u = window.localStorage.getItem("loggedInOlympicsUser");
-  const user = JSON.parse(u);
-  if (user) {
-    token = `bearer ${user.token}`;
-  }
-  const config = {
-    headers: { Authorization: token },
-  };
+  setToken();
+  const config = { headers: { Authorization: token } };
   const response = await axios.get(`${baseUrl}/${videoId}`, config);
   return response.data;
 };
+
 const create = async (newObject) => {
-  const u = window.localStorage.getItem("loggedInOlympicsUser");
-  const user = JSON.parse(u);
-  if (user) {
-    token = `bearer ${user.token}`;
-  }
+  setToken();
   const configs = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: token,
-    },
+    headers: { "Content-Type": "application/json", Authorization: token },
   };
   const response = await axios.post(baseUrl, newObject, configs);
   return response.data;
 };
 
 const update = async (id, newObject) => {
-  const u = window.localStorage.getItem("loggedInOlympicsUser");
-  const user = JSON.parse(u);
-  if (user) {
-    token = `bearer ${user.token}`;
-  }
-  const config = {
-    headers: { Authorization: token },
-  };
+  setToken();
+  const config = { headers: { Authorization: token } };
   const response = await axios.patch(`${baseUrl}/${id}`, newObject, config);
   return response.data;
 };
-const deleteVideo = async (id) => {
-  const u = window.localStorage.getItem("loggedInOlympicsUser");
-  const user = JSON.parse(u);
-  if (user) {
-    token = `bearer ${user.token}`;
-  }
 
-  const config = {
-    headers: { Authorization: token },
-  };
+const deleteVideo = async (id) => {
+  setToken();
+  const config = { headers: { Authorization: token } };
   const response = await axios.delete(`${baseUrl}/${id}`, config);
   return response.data;
 };
 
 const createComment = async (videoId, commentData) => {
-  const u = window.localStorage.getItem("loggedInOlympicsUser");
-  const user = JSON.parse(u);
-  if (user) {
-    token = `bearer ${user.token}`;
-  }
+  setToken();
   const config = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: token,
-    },
+    headers: { "Content-Type": "application/json", Authorization: token },
   };
   const response = await axios.post(
     `${baseUrl}/${videoId}/comments`,
