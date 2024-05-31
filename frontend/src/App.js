@@ -39,6 +39,7 @@ import Fixtures from "./views/Fixtures";
 import Email from "./views/changePassword/Email";
 import Otp from "./views/changePassword/Otp";
 import ChangePw from "./views/changePassword/Change_pw";
+import ScrollToTop from "./Components/scrollToTop";
 function App() {
   const [user, setUser] = useState(null);
   const [searchText, setSearchText] = useState({ query: "" });
@@ -68,6 +69,7 @@ function App() {
   return (
     <div className="App left-0 dark">
       <Router>
+        <ScrollToTop />
         <Navbar
           user={user}
           setUser={setUser}
