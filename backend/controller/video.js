@@ -136,67 +136,43 @@ videoRouter.delete("/:id", checkAdmin, async (request, response) => {
   }
 });
 
-videoRouter.post("/:id/comments", async (request, response) => {
-  const { text } = request.body;
-  const videoId = request.params.id;
-  const userId = request.user._id;
-
-  if (!text) {
-    return response.status(400).json({ error: "Comment text is required" });
-  }
-
+// Get comments for a video
+videoRouter.get("/:id/comments", async (req, res) => {
   try {
-    const video = await Video.findById(videoId);
-    if (!video) {
-      return response.status(404).json({ error: "Video not found" });
-    }
+    const video = await Video.findById(req.params.id).populate(
+      "comments.postedBy",
+      "username"
+    );
+    res.json(video.comments);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch comments" });
+  }
+});
 
-    const comment = {
+// Post a comment to a video
+videoRouter.post("/:id/comments", async (req, res) => {
+  try {
+    const { text } = req.body;
+    const user = req.user; // Assuming user is authenticated and available in req.user
+    const video = await Video.findById(req.params.id);
+
+    const newComment = {
       text,
-      postedBy: userId,
+      postedBy: user._id,
     };
 
-    video.comments.push(comment);
+    video.comments.push(newComment);
     await video.save();
 
-    // Populate the postedBy field for the new comment
-    const populatedVideo = await Video.findById(videoId).populate({
-      path: "comments.postedBy",
+    const populatedComment = await Video.populate(newComment, {
+      path: "postedBy",
       select: "username",
     });
 
-    const newComment =
-      populatedVideo.comments[populatedVideo.comments.length - 1];
-
-    response.status(201).json(newComment);
+    res.status(201).json(populatedComment);
   } catch (error) {
-    console.error(error);
-    response
-      .status(500)
-      .json({ error: "An error occurred while posting the comment" });
+    res.status(500).json({ error: "Failed to add comment" });
   }
 });
 
-videoRouter.get("/:id", async (request, response) => {
-  try {
-    const video = await Video.findById(request.params.id)
-      .populate("uploader", { username: 1, email: 1 })
-      .populate("category", { title: 1 })
-      .populate({
-        path: "comments.postedBy",
-        select: "username",
-      });
-
-    if (!video) {
-      return response.status(404).json({ error: "Video not found" });
-    }
-
-    response.status(200).json(video);
-  } catch (error) {
-    console.error(error);
-    response
-      .status(500)
-      .json({ error: "An error occurred while fetching the video" });
-  }
-});
 export default videoRouter;

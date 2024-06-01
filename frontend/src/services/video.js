@@ -46,17 +46,22 @@ const deleteVideo = async (id) => {
   return response.data;
 };
 
-const createComment = async (videoId, commentData) => {
+// Fetch comments for a video
+const getComments = async (videoId) => {
+  const response = await axios.get(`${baseUrl}/${videoId}/comments`);
+  return response.data;
+};
+
+// Post a comment to a video
+const addComment = async (videoId, comment) => {
   setToken();
-  const config = {
-    headers: { "Content-Type": "application/json", Authorization: token },
-  };
+  const config = { headers: { Authorization: token } };
   const response = await axios.post(
     `${baseUrl}/${videoId}/comments`,
-    commentData,
+    comment,
     config
   );
   return response.data;
 };
 
-export { create, getAll, getOne, update, deleteVideo, createComment };
+export { create, getAll, getOne, update, deleteVideo, getComments, addComment };
