@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import ResponsivePlayer from "../../Components/ResponsivePlayer";
 import VideoCard from "../../Components/VideoCard";
 import { getAll, getOne } from "../../services/video";
-import Comments from "../../Components/Comments";
+import Comments from "../../interactions/VideoComment";
 import Moment from "react-moment";
 import Loading from "../../Components/Loading";
 import NotExists from "../../Components/NotExists";

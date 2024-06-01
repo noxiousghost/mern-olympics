@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import Moment from "react-moment";
 import { getComments, addComment } from "../services/video";
-import { getUser } from "../services/token"; // Importing the getUser function
+import { getUser } from "../services/token";
 
 function Comments({ videoId }) {
   const [comment, setComment] = useState("");
