@@ -97,7 +97,10 @@ function App() {
             <Route path="favourites" element={<Favourites />} />
             <Route path="news">
               <Route index element={<News setMessage={setMessage} />} />
-              <Route path=":id" element={<SingleNews />} />
+              <Route
+                path=":id"
+                element={<SingleNews user={user} setMessage={setMessage} />}
+              />
             </Route>
             <Route path="categories">
               <Route index element={<Categories setMessage={setMessage} />} />
