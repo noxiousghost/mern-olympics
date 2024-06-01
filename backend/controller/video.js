@@ -105,7 +105,6 @@ videoRouter.patch("/:id", checkAdmin, async (request, response) => {
 });
 
 // add video in a category through video controller
-
 videoRouter.delete("/:id", checkAdmin, async (request, response) => {
   const token = request.token;
   const user = request.user;
@@ -153,7 +152,7 @@ videoRouter.get("/:id/comments", async (req, res) => {
 videoRouter.post("/:id/comments", async (req, res) => {
   try {
     const { text } = req.body;
-    const user = req.user; // Assuming user is authenticated and available in req.user
+    const user = req.user;
     const video = await Video.findById(req.params.id);
 
     const newComment = {
