@@ -34,7 +34,7 @@ function Comments({ newsId, setMessage }) {
           username: user.username,
         };
 
-        setComments([...comments, newComment]);
+        setComments([newComment, ...comments]);
         setComment("");
         setErrorMessage("");
       } catch (error) {
@@ -48,6 +48,8 @@ function Comments({ newsId, setMessage }) {
   const fetchComments = async () => {
     try {
       const response = await getComments(newsId);
+      // Sort comments by postedAt in descending order
+      response.sort((a, b) => new Date(b.postedAt) - new Date(a.postedAt));
       setComments(response);
     } catch (error) {
       console.error("Failed to fetch comments", error);

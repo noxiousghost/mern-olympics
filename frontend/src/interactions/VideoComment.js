@@ -19,8 +19,7 @@ function Comments({ videoId }) {
         newComment.postedBy = {
           username: user.username,
         };
-
-        setComments([...comments, newComment]);
+        setComments([newComment, ...comments]);
         setComment("");
         setErrorMessage("");
       } catch (error) {
@@ -34,6 +33,8 @@ function Comments({ videoId }) {
   const fetchComments = async () => {
     try {
       const response = await getComments(videoId);
+      // Sort comments by postedAt in descending order
+      response.sort((a, b) => new Date(b.postedAt) - new Date(a.postedAt));
       setComments(response);
     } catch (error) {
       console.error("Failed to fetch comments", error);
