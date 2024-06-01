@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import Moment from "react-moment";
-import { createComment, getOne } from "../services/video";
+import { getComments, addComment } from "../services/video";
+import { getUser } from "../services/token"; // Importing the getUser function
 
 function Comments({ videoId }) {
   const [comment, setComment] = useState("");
@@ -11,7 +12,14 @@ function Comments({ videoId }) {
   const handleCommentSubmit = async () => {
     if (comment.trim() !== "") {
       try {
-        const newComment = await createComment(videoId, { text: comment });
+        const user = getUser(); // Getting the logged-in user information
+        const newComment = await addComment(videoId, { text: comment });
+
+        // Adding the postedBy field with the current user's information to the new comment
+        newComment.postedBy = {
+          username: user.username,
+        };
+
         setComments([...comments, newComment]);
         setComment("");
         setErrorMessage("");
@@ -25,10 +33,10 @@ function Comments({ videoId }) {
 
   const fetchComments = async () => {
     try {
-      const video = await getOne(videoId);
-      setComments(video.comments);
+      const response = await getComments(videoId);
+      setComments(response);
     } catch (error) {
-      console.error("Failed to fetch video details");
+      console.error("Failed to fetch comments", error);
     }
   };
 
@@ -66,7 +74,7 @@ function Comments({ videoId }) {
 
       {comments.map((comment, index) => (
         <div key={index} className="px-6 py-3 my-2">
-          <p>
+          <p className="relative">
             <img
               className="w-7 h-7 absolute -ml-8"
               alt="icon"
