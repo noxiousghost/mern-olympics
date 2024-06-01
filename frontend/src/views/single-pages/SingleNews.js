@@ -5,6 +5,7 @@ import NewsCard from "../../Components/NewsCard";
 import NotExists from "../../Components/NotExists";
 import moment from "moment";
 import { getAll, getOne } from "../../services/news";
+import Comments from "../../interactions/NewsComment";
 const SingleNews = ({ setMessage }) => {
   const [news, setNews] = useState({});
   const [relatedNews, setRelatedNews] = useState([]);
@@ -68,6 +69,8 @@ const SingleNews = ({ setMessage }) => {
           </div>
         </div>
       )}
+      {/* Comment Section */}
+      <Comments newsId={id} setMessage={setMessage} />
 
       {/* Related News */}
       <div className="my-8 w-full flex flex-col">
