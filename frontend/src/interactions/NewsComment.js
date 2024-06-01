@@ -2,17 +2,31 @@ import React, { useEffect, useState } from "react";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import Moment from "react-moment";
 import { getComments, addComment } from "../services/news";
+import { useNavigate } from "react-router-dom";
 import { getUser } from "../services/token"; // Importing the getUser function
 
-function Comments({ newsId }) {
+function Comments({ newsId, setMessage }) {
+  // Adding setMessage as a prop
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate(); // Using navigate to redirect
 
   const handleCommentSubmit = async () => {
+    const user = getUser(); // Getting the logged-in user information
+
+    if (!user) {
+      setMessage({
+        message: "Must login to add comments!",
+        className: "warning",
+      });
+      setErrorMessage("login to comment");
+      navigate("/login");
+      return;
+    }
+
     if (comment.trim() !== "") {
       try {
-        const user = getUser(); // Getting the logged-in user information
         const newComment = await addComment(newsId, { text: comment });
 
         // Adding the postedBy field with the current user's information to the new comment

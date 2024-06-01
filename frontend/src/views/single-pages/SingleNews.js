@@ -69,8 +69,8 @@ const SingleNews = ({ setMessage }) => {
           </div>
         </div>
       )}
-
-      <Comments newsId={id} />
+      {/* Comment Section */}
+      <Comments newsId={id} setMessage={setMessage} />
 
       {/* Related News */}
       <div className="my-8 w-full flex flex-col">
