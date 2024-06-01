@@ -91,13 +91,52 @@ newsRouter.delete("/:id", checkAdmin, async (request, response) => {
   if (!exists) {
     return response.status(400).json({ error: "News doesnot exists" });
   }
-  const deletePath = path.join("public", exists.image)
+  const deletePath = path.join("public", exists.image);
   fs.rmSync(deletePath);
   const result = await News.deleteOne({ _id: request.params.id });
   if (result.deletedCount === 1) {
     response.status(204).end();
   } else {
     return response.status(400).json({ error: "Failed to delete" });
+  }
+});
+
+// Get comments for a news article
+newsRouter.get("/:id/comments", async (req, res) => {
+  try {
+    const news = await News.findById(req.params.id).populate(
+      "comments.postedBy",
+      "username"
+    );
+    res.json(news.comments);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch comments" });
+  }
+});
+
+// Post a comment to a news article
+newsRouter.post("/:id/comments", async (req, res) => {
+  try {
+    const { text } = req.body;
+    const user = req.user; // Assuming user is authenticated and available in req.user
+    const news = await News.findById(req.params.id);
+
+    const newComment = {
+      text,
+      postedBy: user._id,
+    };
+
+    news.comments.push(newComment);
+    await news.save();
+
+    const populatedComment = await News.populate(newComment, {
+      path: "postedBy",
+      select: "username",
+    });
+
+    res.status(201).json(populatedComment);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to add comment" });
   }
 });
 

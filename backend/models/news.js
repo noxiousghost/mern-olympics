@@ -1,5 +1,11 @@
 import mongoose from "mongoose";
 
+const commentSchema = new mongoose.Schema({
+  text: { type: String, required: true },
+  postedBy: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
+  postedAt: { type: Date, default: Date.now },
+});
+
 const newsSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
@@ -12,6 +18,7 @@ const newsSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  comments: [commentSchema],
 });
 
 newsSchema.set("toJSON", {
