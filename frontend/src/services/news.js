@@ -54,4 +54,27 @@ const deleteNews = async (id) => {
   const response = await axios.delete(`${baseUrl}/${id}`, config);
   return response.data;
 };
-export { create, getAll, getOne, update,deleteNews };
+
+// Fetch comments for a news article
+const getComments = async (newsId) => {
+  const response = await axios.get(`${baseUrl}/${newsId}/comments`);
+  return response.data;
+};
+
+// Post a comment to a news article
+const addComment = async (newsId, comment) => {
+  const u = window.localStorage.getItem("loggedInOlympicsUser");
+  const user = JSON.parse(u);
+  if (user) {
+    token = `bearer ${user.token}`;
+  }
+  const config = { headers: { Authorization: token } };
+  const response = await axios.post(
+    `${baseUrl}/${newsId}/comments`,
+    comment,
+    config
+  );
+  return response.data;
+};
+
+export { create, getAll, getOne, update, deleteNews, getComments, addComment };
