@@ -7,6 +7,7 @@ import NotExists from "../Components/NotExists";
 import countries from "i18n-iso-countries";
 import englishCountries from "i18n-iso-countries/langs/en.json";
 import emojiFlag from "emoji-flag";
+import Chat from "../interactions/Chat";
 countries.registerLocale(englishCountries);
 
 const brazil = emojiFlag("BR");
@@ -60,16 +61,18 @@ const Live = ({ user, setMessage }) => {
 
       {/* <ToastContainer position="top-right" /> */}
       <div className="flex justify-end h-auto live-video lg:justify-center">
-        <div className="flex flex-row absolute mt-2 justify-end text-wheatt w-80 md:w-96 lg:w-full">
-          <span className="bg-red-600 font-medium lg:p-1 mr-8 rounded-lg  lg:mr-60">
-            Live
-          </span>
-        </div>
-        {/* <ReactPlayer url="/assets/live-video/swimming.mp4" controls={true} autoPlay muted={true} /> */}
-        <video autoPlay controls muted loop>
+        <video
+          autoPlay
+          controls
+          muted
+          loop
+          style={{ maxWidth: "72%" }}
+          className="pr-5"
+        >
           <source src="/assets/live-video/football.mp4" type="video/mp4" />
         </video>
       </div>
+      <Chat />
 
       <div className="text-wheatt font-bold py-2 md:px-10 md:mx-10 md:my-2">
         <span style={{ fontSize: "30px" }} role="img" aria-label={"BR"}>

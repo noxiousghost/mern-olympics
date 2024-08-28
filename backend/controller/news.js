@@ -2,8 +2,8 @@ import { Router } from "express";
 import News from "../models/news.js";
 import { newsExists } from "../utils/existsMiddleware.js";
 import { checkAdmin, setFileType } from "../utils/middleware.js";
-import { uploadImage } from "../utils/multer.js";
-import { SECRET } from "../utils/config.js";
+import { uploadImage, s3 } from "../utils/multer.js";
+import { SECRET, AWS_S3_BUCKET_NAME } from "../utils/config.js";
 import fs from "fs";
 import jwt from "jsonwebtoken";
 import path from "path";
@@ -35,15 +35,20 @@ newsRouter.post(
     const body = request.body;
     const token = request.token;
     const user = request.user;
-    let imagePath;
-    const { path } = request.file;
-    if (path) {
-      imagePath = path.replace("public", "");
-    }
+    // let imagePath;
+    // const { path } = request.file;
+    // if (path) {
+    //   imagePath = path.replace("public", "");
+    // }
     const decodeToken = jwt.verify(token, SECRET);
 
     if (!(user && token && decodeToken.id)) {
       return response.status(401).json({ error: "Token missing or invalid!" });
+    }
+    // Image path in S3
+    let imagePath;
+    if (request.file && request.file.location) {
+      imagePath = request.file.location; // S3 location URL
     }
     const news = await new News({
       title: body.title,
@@ -91,13 +96,40 @@ newsRouter.delete("/:id", checkAdmin, async (request, response) => {
   if (!exists) {
     return response.status(400).json({ error: "News doesnot exists" });
   }
-  const deletePath = path.join("public", exists.image);
-  fs.rmSync(deletePath);
-  const result = await News.deleteOne({ _id: request.params.id });
-  if (result.deletedCount === 1) {
-    response.status(204).end();
-  } else {
-    return response.status(400).json({ error: "Failed to delete" });
+  // const deletePath = path.join("public", exists.image);
+  // fs.rmSync(deletePath);
+  // const result = await News.deleteOne({ _id: request.params.id });
+  // if (result.deletedCount === 1) {
+  //   response.status(204).end();
+  // } else {
+  //   return response.status(400).json({ error: "Failed to delete" });
+  // }
+  // Extract the file name from the S3 URL
+  const imageUrl = exists.image;
+  const imageKey = imageUrl.split("s3.amazonaws.com/").pop();
+  // Delete the image from S3
+  const params = {
+    Bucket: AWS_S3_BUCKET_NAME,
+    Key: imageKey,
+  };
+  try {
+    const deleteResult = await s3.deleteObject(params).promise();
+    console.log("Delete Result:", deleteResult);
+
+    // Now delete the news article from the database
+    const result = await News.deleteOne({ _id: request.params.id });
+    if (result.deletedCount === 1) {
+      response.status(204).end();
+    } else {
+      return response
+        .status(400)
+        .json({ error: "Failed to delete the news article" });
+    }
+  } catch (error) {
+    console.error("Error deleting image from S3:", error);
+    return response
+      .status(500)
+      .json({ error: "Failed to delete the image from S3" });
   }
 });
 
