@@ -81,4 +81,4 @@ const uploadVideo = multer({
   fileFilter: fileFilter,
 }).single("video");
 
-export { uploadImage, uploadVideo };
+export { uploadImage, uploadVideo, s3 };
