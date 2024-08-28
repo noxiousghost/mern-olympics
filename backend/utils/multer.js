@@ -1,10 +1,12 @@
 import multer from "multer";
 import { v4 } from "uuid";
 import fs from "fs";
+import path from "path";
 
+// File type validation
 const fileFilter = (req, file, cb) => {
-  const allowedTypes = /jpeg|jpg|png|gif|mp4|mov|avi/; // regex for checking file format
-  const mimeType = allowedTypes.test(file.mimetype); // testing the file type with above regex
+  const allowedTypes = /jpeg|jpg|png|gif|mp4|mov|avi/;
+  const mimeType = allowedTypes.test(file.mimetype);
   const extname = allowedTypes.test(
     path.extname(file.originalname).toLowerCase()
   );
@@ -19,20 +21,22 @@ const fileFilter = (req, file, cb) => {
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     const fileType = req.fileType;
-    let uploadPath;
+    let path;
     if (fileType) {
-      uploadPath = `public/uploads/${fileType}`;
+      path = `public/uploads/${fileType}`;
     } else {
-      uploadPath = `public/uploads/random`;
+      path = `public/uploads/random`;
     }
-    fs.mkdirSync(uploadPath, { recursive: true });
-    cb(null, uploadPath);
+    fs.mkdirSync(path, { recursive: true });
+    cb(null, path);
   },
   filename(req, file, cb) {
-    const newFileName = `${uuidv4()}-${file.originalname.trim()}`;
+    // ${v4()}-
+    const newFileName = `${file.originalname.trim()}`;
     cb(null, newFileName);
   },
 });
+// Configure Multer
 const uploadImage = multer({
   storage: storage,
   limits: { fileSize: 5 * 1024 * 1024 }, // 5 MB limit for images
