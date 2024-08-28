@@ -18,24 +18,25 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
+// Set storage configuration
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     const fileType = req.fileType;
-    let path;
+    let uploadPath;
     if (fileType) {
-      path = `public/uploads/${fileType}`;
+      uploadPath = `public/uploads/${fileType}`;
     } else {
-      path = `public/uploads/random`;
+      uploadPath = `public/uploads/random`;
     }
-    fs.mkdirSync(path, { recursive: true });
-    cb(null, path);
+    fs.mkdirSync(uploadPath, { recursive: true });
+    cb(null, uploadPath);
   },
   filename(req, file, cb) {
-    // ${v4()}-
-    const newFileName = `${file.originalname.trim()}`;
+    const newFileName = `${uuidv4()}-${file.originalname.trim()}`;
     cb(null, newFileName);
   },
 });
+
 // Configure Multer
 const uploadImage = multer({
   storage: storage,
