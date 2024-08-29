@@ -114,32 +114,17 @@ newsRouter.delete("/:id", checkAdmin, async (request, response) => {
   } else if (FILE_STORAGE == "disk") {
     const deletePath = path.join("public", exists.image);
     fs.rmSync(deletePath);
-    const result = await News.deleteOne({ _id: request.params.id });
-    if (result.deletedCount === 1) {
-      response.status(204).end();
-    } else {
-      return response.status(400).json({ error: "Failed to delete" });
-    }
   } else {
     return response.status(400).json({ error: "Invalid image path" });
   }
-
   // delete news article from database
-  try {
-    // Now delete the news article from the database
-    const result = await News.deleteOne({ _id: request.params.id });
-    if (result.deletedCount === 1) {
-      response.status(204).end();
-    } else {
-      return response
-        .status(400)
-        .json({ error: "Failed to delete the news article" });
-    }
-  } catch (error) {
-    console.error("Error deleting image from S3:", error);
+  const result = await News.deleteOne({ _id: request.params.id });
+  if (result.deletedCount === 1) {
+    response.status(204).end();
+  } else {
     return response
-      .status(500)
-      .json({ error: "Failed to delete the image from S3" });
+      .status(400)
+      .json({ error: "Failed to delete the news article" });
   }
 });
 
