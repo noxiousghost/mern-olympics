@@ -2,7 +2,7 @@ import { Router } from "express";
 import News from "../models/news.js";
 import { newsExists } from "../utils/existsMiddleware.js";
 import { checkAdmin, setFileType } from "../utils/middleware.js";
-import { uploadImage, s3, fileSizeLimitErrorHandler } from "../utils/multer.js";
+import { uploadImage, s3, multurErrorHandler } from "../utils/multer.js";
 import { SECRET, AWS_S3_BUCKET_NAME, FILE_STORAGE } from "../utils/config.js";
 import fs from "fs";
 import jwt from "jsonwebtoken";
@@ -31,7 +31,7 @@ newsRouter.post(
   checkAdmin,
   uploadImage,
   newsExists,
-  fileSizeLimitErrorHandler,
+  multurErrorHandler,
   async (request, response) => {
     const body = request.body;
     const token = request.token;

@@ -21,7 +21,7 @@ AWS.config.update({
 
 // Create an S3 instance
 const s3 = new AWS.S3();
-const fileSizeLimitErrorHandler = (err, req, res, next) => {
+const multurErrorHandler = (err, req, res, next) => {
   if (err) {
     res.status(413).json({ error: err.message });
   } else {
@@ -95,4 +95,4 @@ const uploadVideo = multer({
   fileFilter: fileFilter,
 }).single("video");
 
-export { uploadImage, uploadVideo, s3, fileSizeLimitErrorHandler };
+export { uploadImage, uploadVideo, s3, multurErrorHandler };
