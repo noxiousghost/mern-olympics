@@ -120,6 +120,8 @@ newsRouter.delete("/:id", checkAdmin, async (request, response) => {
     } else {
       return response.status(400).json({ error: "Failed to delete" });
     }
+  } else {
+    return response.status(400).json({ error: "Invalid image path" });
   }
 
   // delete news article from database
