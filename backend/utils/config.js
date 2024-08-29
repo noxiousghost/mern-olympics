@@ -12,6 +12,8 @@ const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY;
 const AWS_REGION = process.env.AWS_REGION;
 const AWS_S3_BUCKET_NAME = process.env.AWS_S3_BUCKET_NAME;
 
+const FILE_STORAGE = process.env.FILE_STORAGE;
+
 export {
   MONGODB_URI,
   PORT,
@@ -22,4 +24,5 @@ export {
   AWS_SECRET_ACCESS_KEY,
   AWS_ACCESS_KEY_ID,
   AWS_S3_BUCKET_NAME,
+  FILE_STORAGE,
 };
