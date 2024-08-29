@@ -2,8 +2,8 @@ import { Router } from "express";
 import jwt from "jsonwebtoken";
 import Video from "../models/video.js";
 import { checkAdmin, setFileType } from "../utils/middleware.js";
-import { uploadVideo } from "../utils/multer.js";
-import { SECRET } from "../utils/config.js";
+import { uploadVideo, s3, multurErrorHandler } from "../utils/multer.js";
+import { SECRET, AWS_S3_BUCKET_NAME, FILE_STORAGE } from "../utils/config.js";
 import { videoExists } from "../utils/existsMiddleware.js";
 import Category from "../models/category.js";
 import path from "path";
@@ -45,15 +45,25 @@ videoRouter.post(
   checkAdmin,
   uploadVideo,
   videoExists,
+  multurErrorHandler,
   async (request, response) => {
     const body = request.body;
     const token = request.token;
     const user = request.user;
     let videoPath;
-    const { path } = request.file;
-    if (path) {
-      videoPath = path.replace("public", "");
+    if (FILE_STORAGE == "aws") {
+      if (request.file && request.file.location) {
+        videoPath = request.file.location; // S3 location URL
+      }
+    } else if (FILE_STORAGE == "disk") {
+      const { path } = request.file;
+      if (path) {
+        videoPath = path.replace("public", "");
+      }
+    } else {
+      return response.json({ error: "invalid video path" });
     }
+
     const decodeToken = jwt.verify(token, SECRET);
 
     if (!(user && token && decodeToken.id)) {
@@ -125,8 +135,22 @@ videoRouter.delete("/:id", checkAdmin, async (request, response) => {
   foundCategory.videos = filtered;
   await foundCategory.save();
 
-  const deletePath = path.join("public", exists.video_url);
-  fs.rmSync(deletePath);
+  if (FILE_STORAGE == "aws") {
+    const videoUrl = exists.video_url;
+    const videoKey = videoUrl.split("s3.amazonaws.com/").pop();
+    // Delete the video from S3
+    const params = {
+      Bucket: AWS_S3_BUCKET_NAME,
+      Key: videoKey,
+    };
+    await s3.deleteObject(params).promise();
+  } else if (FILE_STORAGE == "disk") {
+    const deletePath = path.join("public", exists.video_url);
+    fs.rmSync(deletePath);
+  } else {
+    return response.status(400).json({ error: "Invalid image path" });
+  }
+
   const result = await Video.deleteOne({ _id: request.params.id });
   if (result.deletedCount === 1) {
     response.status(204).end();
